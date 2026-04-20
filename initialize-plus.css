@@ -932,7 +932,7 @@
 	border: solid var(--line_xf);
 	color: inherit;
 	inline-size: 1rem;
-	margin-block: max(0px, 0.5lh - 0.5rem);
+	margin-block: max(0px, 0.5lh - 0.5em);
 	vertical-align: top;
 
 	&:checked::before {
@@ -999,20 +999,23 @@
 		inline-size: 100%;
 		padding: 0.125rem;
 
-		&::-webkit-progress-inner-element {
-			border-radius: inherit;
-		}
-		&::-webkit-progress-bar {
+		&::-webkit-progress-inner-element,
+		&::-webkit-progress-bar,
+		&::-webkit-progress-value {
 			background: none;
 			border-radius: inherit;
 		}
-		&::-webkit-progress-value {
-			background: var(--blue);
+		&::-moz-progress-bar {
+			background: none;
 			border-radius: inherit;
 		}
-		&::-moz-progress-bar {
-			background: var(--blue);
-			border-radius: inherit;
+		&:where([value]){
+			&::-webkit-progress-value {
+				background: var(--blue);
+			}
+			&::-moz-progress-bar {
+				background: var(--blue);
+			}
 		}
 	}
 }
