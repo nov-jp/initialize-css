@@ -192,6 +192,7 @@
 			font-weight: inherit;
 			padding-block: calc(var(--sp_m) + 0.5em - 0.5lh);
 			padding-inline: var(--sp_m);
+			scroll-snap-align: start;
 		}
 		& > tbody {
 			border-block: solid calc(var(--border-width) * 2) var(--border-color);
