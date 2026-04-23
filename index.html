@@ -7,7 +7,7 @@
 		<title>HTMLのデフォルトスタイルを初期化するCSS @ Initialize CSS</title>
 		<link rel="stylesheet" href="initialize.min.css" id="initialize-css" />
 		<link rel="stylesheet" href="initialize-plus.min.css" id="initialize-plus-css" />
-		<link rel="stylesheet" href="example-initialize-vars-ja.css" />
+		<link rel="stylesheet" href="example-initialize-vars-ja.css" id="example-initialize-vars-ja-css" />
 	</head>
 	<body class="__box__" style="--inline-size: min(1440px, 45rem); --margin-block: var(--sp_l); --margin-inline: var(--sp_l);">
 		<header>
@@ -31,7 +31,12 @@
 						-->&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/initialize-plus.min.css&quot; /&gt;&#xA;<!--
 						--></code></pre>
 					</figure>
-					<p><select class="__select__" onchange="document.getElementById( 'initialize-plus-css' ).href = this.value;"><option value="">initialize-plus.css を読み込まない</option><option value="initialize-plus.css" selected>initialize-plus.css を読み込む</option></select></p>
+					<p>
+						<select class="__select__" onchange="document.getElementById( 'initialize-plus-css' ).href = this.value;">
+							<option value="">initialize-plus.css を読み込まない</option>
+							<option value="initialize-plus.css" selected>initialize-plus.css を読み込む</option>
+						</select>
+					</p>
 				</section>
 				<section>
 					<h3>専用のデザイントークン</h3>
@@ -221,6 +226,12 @@
 						-->&lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/my-initialize-vars.css&quot; /&gt;&#xA;<!--
 						--></code></pre>
 					</figure>
+					<p>
+						<select class="__select__" onchange="document.getElementById( 'example-initialize-vars-ja-css' ).href = this.value;">
+							<option value="">example-initialize-vars-ja.css を読み込まない</option>
+							<option value="example-initialize-vars-ja.css" selected>example-initialize-vars-ja.css を読み込む</option>
+						</select>
+					</p>
 				</section>
 				<section>
 					<h3>余白の制御</h3>
