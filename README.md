@@ -2,6 +2,8 @@
 
 Initialize CSS は邪魔になりそうなスタイルを無くすためのリセットCSSでも、ブラウザ間の差異を無くすだけのノーマライズCSSでもありません。セマンティックなHTMLが読みやすくなるよう初期化します。
 
+[https://nov-jp.github.io/initialize-css/](https://nov-jp.github.io/initialize-css/)
+
 ## 特徴
 
 * ブラウザ間の差異を無くします。
