@@ -3,19 +3,22 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<title>リセットでもノーマライズでもない初期化するためのCSS @ Initialize CSS</title>
-		<link rel="stylesheet" href="initialize.min.css" />
+		<meta name="description" content="Initialize CSS は邪魔になりそうなスタイルを無くすためのリセットCSSでも、ブラウザ間の差異を無くすだけのノーマライズCSSでもありません。セマンティックなHTMLが読みやすくなるよう初期化します。" />
+		<title>HTMLのデフォルトスタイルを初期化するCSS @ Initialize CSS</title>
+		<link rel="stylesheet" href="initialize.min.css" id="initialize-css" />
+		<link rel="stylesheet" href="initialize-plus.min.css" id="initialize-plus-css" />
 		<link rel="stylesheet" href="example-initialize-vars-ja.css" />
-		<link rel="stylesheet" href="initialize-plus.min.css" />
 	</head>
 	<body class="__box__" style="--inline-size: min(1440px, 45rem); --margin-block: var(--sp_l); --margin-inline: var(--sp_l);">
 		<header>
 			<hgroup>
 				<h1>Initialize CSS</h1>
-				<p>リセットでもノーマライズでもない初期化するためのCSS</p>
+				<p>HTMLのデフォルトスタイルを初期化するCSS</p>
 			</hgroup>
 		</header>
 		<main>
+			<p>Initialize CSS は邪魔になりそうなスタイルを無くすためのリセットCSSでも、ブラウザ間の差異を無くすだけのノーマライズCSSでもありません。セマンティックなHTMLが読みやすくなるよう初期化します。</p>
+			<p><a href="https://github.com/nov-jp/initialize-css" rel="noopener" target="_blank" class="__button__" style="--border-radius: 1e6px;">GitHub</a></p>
 			<section>
 				<h2>特徴</h2>
 				<section>
@@ -28,6 +31,7 @@
 						-->&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/initialize-plus.min.css&quot; /&gt;&#xA;<!--
 						--></code></pre>
 					</figure>
+					<p><select class="__select__" onchange="document.getElementById( 'initialize-plus-css' ).href = this.value;"><option value="">initialize-plus.css を読み込まない</option><option value="initialize-plus.css" selected>initialize-plus.css を読み込む</option></select></p>
 				</section>
 				<section>
 					<h3>専用のデザイントークン</h3>
@@ -37,9 +41,9 @@
 						<pre class="__pre__code"><code><!--
 						-->:root {&#xA;<!--
 						-->&#x9;/* 不透明度 */&#xA;<!--
-						-->&#x9;/* [使用例1] color: rgb(0, 0, 0, var(--alpha_xl)); */&#xA;<!--
-						-->&#x9;/* [使用例2] color: color-mix(in srgb, transparent, var(--black) var(--alpha_xl)); */&#xA;<!--
-						-->&#x9;/* [使用例3] opacity: var(--alpha_xl); */&#xA;<!--
+						-->&#x9;/* [使用例1] color: rgb(0, 0, 0, var(--alpha_m)); */&#xA;<!--
+						-->&#x9;/* [使用例2] color: color-mix(in srgb, transparent, var(--black) var(--alpha_m)); */&#xA;<!--
+						-->&#x9;/* [使用例3] opacity: var(--alpha_m); */&#xA;<!--
 						-->&#x9;--alpha_<abbr title="Extra Low">xl</abbr>: calc(100% * 1 / 8);&#xA;<!--
 						-->&#x9;--alpha_<abbr title="Low">l</abbr>: calc(100% * 1 / 4);&#xA;<!--
 						-->&#x9;--alpha_<abbr title="Middle">m</abbr>: calc(100% * 1 / 2);&#xA;<!--
@@ -67,11 +71,11 @@
 						-->&#xA;<!--
 						-->&#x9;/* 高度 */&#xA;<!--
 						-->&#x9;/* [使用例] box-shadow: var(--elev_m) var(--black); */&#xA;<!--
-						-->&#x9;--elev_<abbr title="Extra Low">xl</abbr>: 0 1px 4px -1px;&#xA;<!--
-						-->&#x9;--elev_<abbr title="Low">l</abbr>: 0 2px 8px -2px;&#xA;<!--
-						-->&#x9;--elev_<abbr title="Middle">m</abbr>: 0 4px 16px -4px;&#xA;<!--
-						-->&#x9;--elev_<abbr title="High">h</abbr>: 0 8px 32px -8px;&#xA;<!--
-						-->&#x9;--elev_<abbr title="Extra High">xh</abbr>: 0 16px 64px -16px;&#xA;<!--
+						-->&#x9;--<abbr title="Elevation">elev</abbr>_<abbr title="Extra Low">xl</abbr>: 0 1px 4px -1px;&#xA;<!--
+						-->&#x9;--<abbr title="Elevation">elev</abbr>_<abbr title="Low">l</abbr>: 0 2px 8px -2px;&#xA;<!--
+						-->&#x9;--<abbr title="Elevation">elev</abbr>_<abbr title="Middle">m</abbr>: 0 4px 16px -4px;&#xA;<!--
+						-->&#x9;--<abbr title="Elevation">elev</abbr>_<abbr title="High">h</abbr>: 0 8px 32px -8px;&#xA;<!--
+						-->&#x9;--<abbr title="Elevation">elev</abbr>_<abbr title="Extra High">xh</abbr>: 0 16px 64px -16px;&#xA;<!--
 						-->&#xA;<!--
 						-->&#x9;/* 文字サイズ */&#xA;<!--
 						-->&#x9;/* [使用例] font-size: var(--em_m); */&#xA;<!--
@@ -115,13 +119,13 @@
 						-->&#xA;<!--
 						-->&#x9;/* スペース */&#xA;<!--
 						-->&#x9;/* [使用例] padding-block: var(--sp_m); */&#xA;<!--
-						-->&#x9;--sp_<abbr title="Extra Extra Small">xxs</abbr>: max(1px, 1rem / 8);&#xA;<!--
-						-->&#x9;--sp_<abbr title="Extra Small">xs</abbr>: max(1px, 1rem / 4);&#xA;<!--
-						-->&#x9;--sp_<abbr title="Small">s</abbr>: max(1px, 1rem / 2);&#xA;<!--
-						-->&#x9;--sp_<abbr title="Medium">m</abbr>: max(1px, 1rem);&#xA;<!--
-						-->&#x9;--sp_<abbr title="Large">l</abbr>: max(1px, 1rem * 2);&#xA;<!--
-						-->&#x9;--sp_<abbr title="Extra Large">xl</abbr>: max(1px, 1rem * 4);&#xA;<!--
-						-->&#x9;--sp_<abbr title="Extra Extra Large">xxl</abbr>: max(1px, 1rem * 8);&#xA;<!--
+						-->&#x9;--<abbr title="Space">sp</abbr>_<abbr title="Extra Extra Small">xxs</abbr>: max(1px, 1rem / 8);&#xA;<!--
+						-->&#x9;--<abbr title="Space">sp</abbr>_<abbr title="Extra Small">xs</abbr>: max(1px, 1rem / 4);&#xA;<!--
+						-->&#x9;--<abbr title="Space">sp</abbr>_<abbr title="Small">s</abbr>: max(1px, 1rem / 2);&#xA;<!--
+						-->&#x9;--<abbr title="Space">sp</abbr>_<abbr title="Medium">m</abbr>: max(1px, 1rem);&#xA;<!--
+						-->&#x9;--<abbr title="Space">sp</abbr>_<abbr title="Large">l</abbr>: max(1px, 1rem * 2);&#xA;<!--
+						-->&#x9;--<abbr title="Space">sp</abbr>_<abbr title="Extra Large">xl</abbr>: max(1px, 1rem * 4);&#xA;<!--
+						-->&#x9;--<abbr title="Space">sp</abbr>_<abbr title="Extra Extra Large">xxl</abbr>: max(1px, 1rem * 8);&#xA;<!--
 						-->&#xA;<!--
 						-->&#x9;/* ページ全体に適用する文字間隔 */&#xA;<!--
 						-->&#x9;--letter-spacing: normal;&#xA;<!--
@@ -176,17 +180,17 @@
 						<figcaption>my-initialize-vars.css</figcaption>
 						<pre class="__pre__code"><code><!--
 						-->:root {&#xA;<!--
-						-->&#x9;/* フォント */&#xA;<!--
+						-->&#x9;/* フォントを上書き */&#xA;<!--
 						-->&#x9;/* [使用例] font-family: var(--font_sans); */&#xA;<!--
 						-->&#x9;--font_serif: &quot;Hiragino Mincho ProN&quot;, &quot;Noto Serif JP&quot;, &quot;Noto Serif CJK JP&quot;, &quot;BIZ UDPMincho&quot;, ui-serif, serif;&#xA;<!--
 						-->&#x9;--font_sans: &quot;Hiragino Sans&quot;, &quot;Hiragino Kaku Gothic ProN&quot;, &quot;Noto Sans JP&quot;, &quot;Noto Sans CJK JP&quot;, &quot;BIZ UDPGothic&quot;, ui-sans-serif, sans-serif;&#xA;<!--
 						-->&#x9;--font_mono: &quot;Noto Sans Mono JP&quot;, &quot;Noto Sans Mono CJK JP&quot;, &quot;BIZ UDGothic&quot;, ui-monospace, monospace;&#xA;<!--
 						-->&#x9;--font_default: var(--font_sans);&#xA;<!--
 						-->&#xA;<!--
-						-->&#x9;/* 文字間隔 */&#xA;<!--
+						-->&#x9;/* 文字間隔を上書き */&#xA;<!--
 						-->&#x9;--letter-spacing: calc(1em / 32);&#xA;<!--
 						-->&#xA;<!--
-						-->&#x9;/* 基本色をベースとした薄い色 */&#xA;<!--
+						-->&#x9;/* 基本色をベースとした薄い色を追加 */&#xA;<!--
 						-->&#x9;--pale-red: color-mix(in srgb, var(--light-dark), var(--red) var(--alpha_m));&#xA;<!--
 						-->&#x9;--pale-yellow: color-mix(in srgb, var(--light-dark), var(--yellow) var(--alpha_m));&#xA;<!--
 						-->&#x9;--pale-green: color-mix(in srgb, var(--light-dark), var(--green) var(--alpha_m));&#xA;<!--
@@ -213,14 +217,14 @@
 						<figcaption>HTML</figcaption>
 						<pre class="__pre__code"><code><!--
 						-->&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/initialize.min.css&quot; /&gt;&#xA;<!--
-						-->&lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/my-initialize-vars.css&quot; /&gt;&#xA;<!--
 						-->&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/initialize-plus.min.css&quot; /&gt;&#xA;<!--
+						-->&lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/my-initialize-vars.css&quot; /&gt;&#xA;<!--
 						--></code></pre>
 					</figure>
 				</section>
 				<section>
 					<h3>余白の制御</h3>
-					<p>要素間のマージンと行間を細かく制御しています。</p>
+					<p>要素間のブロック方向のマージンと行間を細かく制御しています。</p>
 					<figure class="__figure__">
 						<figcaption>initialize.css</figcaption>
 						<pre class="__pre__code"><code><!--
@@ -255,46 +259,104 @@
 						-->}&#xA;<!--
 						--></code></pre>
 					</figure>
-					<p><code>--sp-size</code>, <code>--sp-scale</code>, <code>--sp-ratio</code>, <code>--leading-size</code>, <code>--leading-scale</code>, <code>--leading-ratio</code> で調整できる柔軟性も確保しています。</p>
+					<p><code>--sp_m</code> に設定した rem値 をベースとしているため、文字サイズの影響を受けない余白量をキープし、サイズ (size), 尺度 (scale), 比率 (ratio) で調整できる柔軟性も確保しています。</p>
 					<figure class="__figure__">
 						<figcaption>CSS</figcaption>
 						<pre class="__pre__code"><code><!--
 						-->/* 文字サイスをベースに行間を設定 */&#xA;<!--
-						-->header, footer {&#xA;<!--
+						-->header.example, footer.example {&#xA;<!--
 						-->&#x9;--leading-size: 1rem;&#xA;<!--
-						-->&#x9;--leading-ratio: calc(3 / 4);&#xA;<!--
 						-->&#x9;font-size: 1rem;&#xA;<!--
+						-->&#xA;<!--
+						-->&#x9;&amp; &gt; * {&#xA;<!--
+						-->&#x9;&#x9;--leading-ratio: calc(3 / 4);&#xA;<!--
+						-->&#x9;}&#xA;<!--
 						-->}&#xA;<!--
-						-->main {&#xA;<!--
+						-->main.example {&#xA;<!--
 						-->&#x9;--leading-size: 1.125rem;&#xA;<!--
-						-->&#x9;--leading-ratio: 1;&#xA;<!--
 						-->&#x9;font-size: 1.125rem;&#xA;<!--
+						-->&#xA;<!--
+						-->&#x9;&amp; &gt; * {&#xA;<!--
+						-->&#x9;&#x9;--leading-ratio: 1;&#xA;<!--
+						-->&#x9;}&#xA;<!--
 						-->}&#xA;<!--
-						-->aside {&#xA;<!--
+						-->aside.example {&#xA;<!--
 						-->&#x9;--leading-size: 0.875rem;&#xA;<!--
-						-->&#x9;--leading-ratio: calc(3 / 4);&#xA;<!--
 						-->&#x9;font-size: 0.875rem;&#xA;<!--
+						-->&#xA;<!--
+						-->&#x9;&amp; &gt; * {&#xA;<!--
+						-->&#x9;&#x9;--leading-ratio: calc(3 / 4);&#xA;<!--
+						-->&#x9;}&#xA;<!--
 						-->}&#xA;<!--
 						-->/* 行の高さを設定 */&#xA;<!--
-						-->pre {&#xA;<!--
+						-->pre.example {&#xA;<!--
 						-->&#x9;--line-height: 1.5;&#xA;<!--
 						-->}&#xA;<!--
 						-->/* 行間を固定サイズで設定 */&#xA;<!--
-						-->button {&#xA;<!--
+						-->button.example {&#xA;<!--
 						-->&#x9;--leading: 0.25rem;&#xA;<!--
 						-->}&#xA;<!--
-						-->/* 行間を割合で設定 */&#xA;<!--
-						-->small {&#xA;<!--
+						-->/* 行間を尺度で設定 */&#xA;<!--
+						-->small.example {&#xA;<!--
 						-->&#x9;--leading-scale: calc(1 / 2);&#xA;<!--
+						-->}&#xA;<!--
+						-->/* マージンを設定 */&#xA;<!--
+						-->span.example {&#xA;<!--
+						-->&#x9;display: block;&#xA;<!--
+						-->&#x9;margin-block: var(--sp);&#xA;<!--
+						-->}&#xA;<!--
+						-->/* マージンを尺度で設定 */&#xA;<!--
+						-->p.example {&#xA;<!--
+						-->&#x9;--sp-scale: calc(1 / 2);&#xA;<!--
+						-->}&#xA;<!--
+						-->/* 子孫要素のマージンを比率で設定 */&#xA;<!--
+						-->blockquote.example {&#xA;<!--
+						-->&#x9;&amp; &gt; * {&#xA;<!--
+						-->&#x9;&#x9;--sp-ratio: 0;&#xA;<!--
+						-->&#x9;}&#xA;<!--
 						-->}&#xA;<!--
 						--></code></pre>
 					</figure>
 				</section>
-<!--
 				<section>
-					<h3>プログラミング関数のような拡張スタイル</h3>
+					<h3>プログラミング的な拡張スタイル</h3>
+					<p>initialize-plus.cssでは、<code>__element__</code>のような特殊なクラス名を採用しています。これはクラスの継承 (<code>class pre_code extends pre {}</code>) のように基本スタイルから派生スタイルを作りやすくします。</p>
+					<figure class="__figure__">
+						<figcaption>initialize-plus.css</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->[class*="__pre__"] { /* 基本スタイル */ }&#xA;<!--
+						-->.__pre__code { /* コード用スタイル */ }&#xA;<!--
+						-->.__pre__samp { /* コンピュータ出力用スタイル */ }&#xA;<!--
+						--></code></pre>
+					</figure>
+					<p>また、関数の引数 (<code>function pre ( background_color = transparent, … ) {}</code>) のように、コード内の値をstyle属性に設定したカスタムプロパティで上書きできるようにしています。</p>
+					<figure class="__figure__">
+						<figcaption>initialize-plus.css</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->[class*="__pre__"] {&#xA;<!--
+						-->&#x9;--background-color: transparent;&#xA;<!--
+						-->&#x9;--border-width: var(--line_xf);&#xA;<!--
+						-->&#x9;--border-color: var(--sheerer-text);&#xA;<!--
+						-->&#x9;--border-radius: calc(var(--border-width) * 2);&#xA;<!--
+						-->&#x9;--color: inherit;&#xA;<!--
+						-->&#x9;…&#xA;<!--
+						-->&#x9;background: var(--background-color);&#xA;<!--
+						-->&#x9;border: solid var(--border-width) var(--border-color);&#xA;<!--
+						-->&#x9;border-radius: var(--border-radius);&#xA;<!--
+						-->&#x9;color: var(--color);&#xA;<!--
+						-->&#x9;…&#xA;<!--
+						-->}&#xA;<!--
+						--></code></pre>
+					</figure>
+					<p>これにより、異なるバリエーションを簡単に生成することができます。</p>
+					<figure class="__figure__">
+						<figcaption>HTML</figcaption>
+						<pre class="__pre__code"><code><!--
+						-->&lt;pre class=&quot;__pre__&quot; style=&quot;--border-width: var(--line_m);&quot;&gt; &hellip; &lt;/pre&gt;&#xA;<!--
+						-->&lt;pre class=&quot;__pre__samp&quot; style=&quot;--background-color: var(--green); --color: var(--white);&quot;&gt;&lt;samp&gt; &hellip; &lt;/samp&gt;&lt;/pre&gt;&#xA;<!--
+						--></code></pre>
+					</figure>
 				</section>
--->
 			</section>
 			<section>
 				<h2>デモンストレーション</h2>
@@ -1767,7 +1829,7 @@
 							-->&lt;/figure&gt;&#xA;<!--
 							--></code></pre>
 						</figure>
-						<figure class="__figure__"><iframe src="demo.html" width="960" height="540" style="--aspect-ratio: 16 / 9;"></iframe></figure>
+						<figure class="__figure__"><iframe src="index.html" width="960" height="540" style="--aspect-ratio: 16 / 9;"></iframe></figure>
 					</section>
 					<section>
 						<h4>エンベッド</h4>

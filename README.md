@@ -1,14 +1,12 @@
 # initialize-css
 
-HTMLのデフォルトスタイルを**初期化**します。邪魔になりそうなスタイルを除去するresetでも、ブラウザ間の差異を無くすだけのnormalizeでもありません。
+Initialize CSS は邪魔になりそうなスタイルを無くすためのリセットCSSでも、ブラウザ間の差異を無くすだけのノーマライズCSSでもありません。セマンティックなHTMLが読みやすくなるよう初期化します。
 
 ## 特徴
 
 * ブラウザ間の差異を無くします。
 * 各要素に初期スタイルを設定します。
-* 基本的なタイポグラフィも設定します。
 * カスタムプロパティによるデザイントークンが設定されています。
-* カスタムプロパティを上書きして独自のデザイントークンが設定できます。
 * 初期スタイルにデザイン性を追加するinitialize-plus.cssもあります。
 
 ## 使い方
@@ -41,8 +39,8 @@ HTMLの`head`要素内で読み込みます。
 
 ```HTML
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/initialize.min.css" />
-<link rel="stylesheet" href="path/to/my-initialize-vars.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/initialize-plus.min.css" />
+<link rel="stylesheet" href="path/to/my-initialize-vars.css" />
 ```
 
 各要素に適宜クラスを追加してください。
