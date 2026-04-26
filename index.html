@@ -7,23 +7,23 @@
 		<title>HTMLのデフォルトスタイルを初期化するCSS @ Initialize CSS</title>
 		<link rel="stylesheet" href="initialize.css" id="initialize-css" />
 		<link rel="stylesheet" href="initialize-plus.css" id="initialize-plus-css" />
-		<link rel="stylesheet" href="example-initialize-vars-ja.css" id="example-initialize-vars-ja-css" />
+		<link rel="stylesheet" href="initialize-vars.css" id="initialize-vars-css" />
 	</head>
-	<body class="__box__" style="--inline-size: min(1440px, 45rem); --margin-block: var(--sp_l); --margin-inline: var(--sp_l);">
+	<body class="__box__" style="--inline-size--: min(1440px, 45rem); --margin-block--: var(--sp_l); --margin-inline--: var(--sp_l);">
 		<header>
 			<hgroup>
 				<h1>Initialize CSS</h1>
-				<p>HTMLのデフォルトスタイルを初期化するCSS</p>
+				<p>HTML のデフォルトスタイルを初期化する CSS</p>
 			</hgroup>
 		</header>
 		<main>
-			<p>Initialize CSS は邪魔になりそうなスタイルを無くすためのリセットCSSでも、ブラウザ間の差異を無くすだけのノーマライズCSSでもありません。セマンティックなHTMLが読みやすくなるよう初期化します。</p>
-			<p><a href="https://github.com/nov-jp/initialize-css" rel="noopener" target="_blank" class="__button__" style="--border-radius: 1e6px;">GitHub</a></p>
+			<p>Initialize CSS は邪魔になりそうなスタイルを無くすための リセットCSS でも、ブラウザ間の差異を無くすだけの ノーマライズCSS でもありません。セマンティックな HTML が読みやすくなるよう初期化します。</p>
+			<p><a href="https://github.com/nov-jp/initialize-css" rel="noopener" target="_blank" class="__button__" style="--border-radius--: 1e6px;">GitHub</a></p>
 			<section>
 				<h2>特徴</h2>
 				<section>
-					<h3>initialize.cssとinitialize-plus.cssの二段構え</h3>
-					<p>各要素に初期スタイルを適用してブラウザ間の差異を無くすinitialize.cssと、初期スタイルを拡張するinitialize-plus.cssがあります。</p>
+					<h3>initialize.css と initialize-plus.css の二段構え</h3>
+					<p>各要素に初期スタイルを適用してブラウザ間の差異を無くす initialize.css と、初期スタイルを拡張する initialize-plus.css があります。</p>
 					<figure class="__figure__">
 						<figcaption>HTML</figcaption>
 						<pre class="__pre__code"><code><!--
@@ -180,9 +180,9 @@
 						-->}&#xA;<!--
 						--></code></pre>
 					</figure>
-					<p>必要に応じてカスタムプロパティを上書き・追加するファイルを作成して、</p>
+					<p>必要に応じてカスタムプロパティを上書き・追加する initialize-vars.css を作成して、</p>
 					<figure class="__figure__">
-						<figcaption>my-initialize-vars.css</figcaption>
+						<figcaption>initialize-vars.css</figcaption>
 						<pre class="__pre__code"><code><!--
 						-->:root {&#xA;<!--
 						-->&#x9;/* フォントを上書き */&#xA;<!--
@@ -217,19 +217,19 @@
 						-->}&#xA;<!--
 						--></code></pre>
 					</figure>
-					<p>読み込ませてください。</p>
+					<p>読み込んでください。</p>
 					<figure class="__figure__">
 						<figcaption>HTML</figcaption>
 						<pre class="__pre__code"><code><!--
 						-->&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/initialize.min.css&quot; /&gt;&#xA;<!--
 						-->&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/initialize-plus.min.css&quot; /&gt;&#xA;<!--
-						-->&lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/my-initialize-vars.css&quot; /&gt;&#xA;<!--
+						-->&lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/initialize-vars.css&quot; /&gt;&#xA;<!--
 						--></code></pre>
 					</figure>
 					<p>
-						<select class="__select__" onchange="document.getElementById( 'example-initialize-vars-ja-css' ).href = this.value;">
-							<option value="">example-initialize-vars-ja.css を読み込まない</option>
-							<option value="example-initialize-vars-ja.css" selected>example-initialize-vars-ja.css を読み込む</option>
+						<select class="__select__" onchange="document.getElementById( 'initialize-vars-css' ).href = this.value;">
+							<option value="">initialize-vars.css を読み込まない</option>
+							<option value="initialize-vars.css" selected>initialize-vars.css を読み込む</option>
 						</select>
 					</p>
 				</section>
@@ -270,7 +270,7 @@
 						-->}&#xA;<!--
 						--></code></pre>
 					</figure>
-					<p><code>--sp_m</code> に設定した rem値 をベースとしているため、文字サイズの影響を受けない余白量をキープし、サイズ (size), 尺度 (scale), 比率 (ratio) で調整できる柔軟性も確保しています。</p>
+					<p>デフォルトでは <code>--sp_m</code> に設定した rem値 をベースとしているため、余白は文字サイズの影響を受けず、サイズ (size), 尺度 (scale), 比率 (ratio) で調整できる柔軟性も確保しています。</p>
 					<figure class="__figure__">
 						<figcaption>CSS</figcaption>
 						<pre class="__pre__code"><code><!--
@@ -331,7 +331,7 @@
 				</section>
 				<section>
 					<h3>プログラミング的な拡張スタイル</h3>
-					<p>initialize-plus.cssでは、<code>__element__</code>のような特殊なクラス名を採用しています。これはクラスの継承 (<code>class pre_code extends pre {}</code>) のように基本スタイルから派生スタイルを作りやすくします。</p>
+					<p>initialize-plus.css では、<code>__element__</code> のような特殊なクラス名を採用しています。これはクラスの継承 (<code>class pre_code extends pre {}</code>) のように基本スタイルから派生スタイルを作りやすくするためです。</p>
 					<figure class="__figure__">
 						<figcaption>initialize-plus.css</figcaption>
 						<pre class="__pre__code"><code><!--
@@ -340,21 +340,21 @@
 						-->.__pre__samp { /* コンピュータ出力用スタイル */ }&#xA;<!--
 						--></code></pre>
 					</figure>
-					<p>また、関数の引数 (<code>function pre ( background_color = transparent, … ) {}</code>) のように、コード内の値をstyle属性に設定したカスタムプロパティで上書きできるようにしています。</p>
+					<p>また、関数の引数 (<code>function pre ( background = none, … ) {}</code>) のように、コード内の値を style属性 に設定したカスタムプロパティで上書きできるようにしています。</p>
 					<figure class="__figure__">
 						<figcaption>initialize-plus.css</figcaption>
 						<pre class="__pre__code"><code><!--
 						-->[class*="__pre__"] {&#xA;<!--
-						-->&#x9;--background-color: transparent;&#xA;<!--
-						-->&#x9;--border-width: var(--line_xf);&#xA;<!--
-						-->&#x9;--border-color: var(--sheerer-text);&#xA;<!--
-						-->&#x9;--border-radius: calc(var(--border-width) * 2);&#xA;<!--
-						-->&#x9;--color: inherit;&#xA;<!--
+						-->&#x9;--background--: none;&#xA;<!--
+						-->&#x9;--border-width--: var(--line_xf);&#xA;<!--
+						-->&#x9;--border-color--: var(--sheerer-text);&#xA;<!--
+						-->&#x9;--border-radius--: calc(var(--border-width--) * 2);&#xA;<!--
+						-->&#x9;--color--: inherit;&#xA;<!--
 						-->&#x9;…&#xA;<!--
-						-->&#x9;background: var(--background-color);&#xA;<!--
-						-->&#x9;border: solid var(--border-width) var(--border-color);&#xA;<!--
-						-->&#x9;border-radius: var(--border-radius);&#xA;<!--
-						-->&#x9;color: var(--color);&#xA;<!--
+						-->&#x9;background: var(--background--);&#xA;<!--
+						-->&#x9;border: solid var(--border-width--) var(--border-color--);&#xA;<!--
+						-->&#x9;border-radius: var(--border-radius--);&#xA;<!--
+						-->&#x9;color: var(--color--);&#xA;<!--
 						-->&#x9;…&#xA;<!--
 						-->}&#xA;<!--
 						--></code></pre>
@@ -363,8 +363,8 @@
 					<figure class="__figure__">
 						<figcaption>HTML</figcaption>
 						<pre class="__pre__code"><code><!--
-						-->&lt;pre class=&quot;__pre__&quot; style=&quot;--border-width: var(--line_m);&quot;&gt; &hellip; &lt;/pre&gt;&#xA;<!--
-						-->&lt;pre class=&quot;__pre__samp&quot; style=&quot;--background-color: var(--green); --color: var(--white);&quot;&gt;&lt;samp&gt; &hellip; &lt;/samp&gt;&lt;/pre&gt;&#xA;<!--
+						-->&lt;pre class=&quot;__pre__&quot; style=&quot;--border-width--: var(--line_m);&quot;&gt; &hellip; &lt;/pre&gt;&#xA;<!--
+						-->&lt;pre class=&quot;__pre__samp&quot; style=&quot;--background--: var(--green); --color--: var(--white);&quot;&gt;&lt;samp&gt; &hellip; &lt;/samp&gt;&lt;/pre&gt;&#xA;<!--
 						--></code></pre>
 					</figure>
 				</section>
@@ -807,7 +807,7 @@
 						-->&#x9;&lt;/table&gt;&#xA;<!--
 						-->&lt;/div&gt;&#xA;<!--
 						-->&lt;div class=&quot;__div-table__&quot;&gt;&#xA;<!--
-						-->&#x9;&lt;table style=&quot;--inline-size: 60rem; --table-layout: fixed;&quot;&gt;&#xA;<!--
+						-->&#x9;&lt;table style=&quot;--inline-size--: 60rem; --table-layout--: fixed;&quot;&gt;&#xA;<!--
 						-->&#x9;&#x9;&hellip;&#xA;<!--
 						-->&#x9;&lt;/table&gt;&#xA;<!--
 						-->&lt;/div&gt;&#xA;<!--
@@ -850,7 +850,7 @@
 						</table>
 					</div>
 					<div class="__div-table__">
-						<table style="--inline-size: 60rem; --table-layout: fixed;">
+						<table style="--inline-size--: 60rem; --table-layout--: fixed;">
 							<caption>キャプション</caption>
 							<thead>
 								<tr><th></th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th></tr>
@@ -888,7 +888,7 @@
 						-->&#x9;&#x9;&hellip;&#xA;<!--
 						-->&#x9;&lt;/pre&gt;&#xA;<!--
 						-->&lt;/figure&gt;&#xA;<!--
-						-->&lt;figure class=&quot;__figure__&quot; style=&quot;--inline-size: fit-content;&quot;&gt;&#xA;<!--
+						-->&lt;figure class=&quot;__figure__&quot; style=&quot;--inline-size--: fit-content;&quot;&gt;&#xA;<!--
 						-->&#x9;&lt;blockquote class=&quot;__blockquote__&quot;&gt;&#xA;<!--
 						-->&#x9;&#x9;&hellip;&#xA;<!--
 						-->&#x9;&lt;/blockquote&gt;&#xA;<!--
@@ -918,7 +918,7 @@
 						-->&lt;pre class=&quot;__pre__&quot;&gt;&amp;lt;pre class=&amp;quot;__pre__&amp;quot;&amp;gt; &hellip; &amp;lt;/pre&amp;gt;&lt;/pre&gt;&#xA;<!--
 						--></pre>
 					</figure>
-					<figure class="__figure__" style="--inline-size: fit-content;">
+					<figure class="__figure__" style="--inline-size--: fit-content;">
 						<blockquote class="__blockquote__">
 							<p>引用文の段落</p>
 						</blockquote>
@@ -991,7 +991,7 @@
 						-->&#x9;&lt;p&gt;&lt;button class=&quot;__button__&quot; aria-controls=&quot;non-modal-dialog&quot; onclick=&quot;document.getElementById(&apos;non-modal-dialog&apos;).close();&quot;&gt;button[onclick*=&quot;close()&quot;]&lt;/button&gt;&lt;/p&gt;&#xA;<!--
 						-->&lt;/dialog&gt;&#xA;<!--
 						-->&lt;p&gt;&lt;button class=&quot;__button__&quot; commandfor=&quot;modal-dialog&quot; command=&quot;show-modal&quot;&gt;button[command=&quot;show-modal&quot;]&lt;/button&gt;&lt;/p&gt;&#xA;<!--
-						-->&lt;dialog id=&quot;modal-dialog&quot; closedby=&quot;closerequest&quot; style=&quot;--inline-size: 640px;&quot;&gt;&#xA;<!--
+						-->&lt;dialog id=&quot;modal-dialog&quot; closedby=&quot;closerequest&quot;&gt;&#xA;<!--
 						-->&#x9;&lt;p&gt;dialog要素内の段落&lt;/p&gt;&#xA;<!--
 						-->&#x9;&lt;p&gt;&lt;button class=&quot;__button__&quot; commandfor=&quot;modal-dialog&quot; command=&quot;close&quot;&gt;button[command=&quot;close&quot;]&lt;/button&gt;&lt;/p&gt;&#xA;<!--
 						-->&lt;/dialog&gt;&#xA;<!--
@@ -1001,7 +1001,7 @@
 						-->&#x9;&lt;p&gt;&lt;button class=&quot;__button__&quot; popovertarget=&quot;popover-dialog-1&quot; popovertargetaction=&quot;hide&quot;&gt;button[popovertargetaction=&quot;hide&quot;]&lt;/button&gt;&lt;/p&gt;&#xA;<!--
 						-->&lt;/dialog&gt;&#xA;<!--
 						-->&lt;p&gt;&lt;button class=&quot;__button__&quot; commandfor=&quot;popover-dialog-2&quot; command=&quot;show-popover&quot;&gt;button[command=&quot;show-popover&quot;]&lt;/button&gt;&lt;/p&gt;&#xA;<!--
-						-->&lt;dialog id=&quot;popover-dialog-2&quot; closedby=&quot;closerequest&quot; popover=&quot;auto&quot; style=&quot;--inline-size: 640px;&quot;&gt;&#xA;<!--
+						-->&lt;dialog id=&quot;popover-dialog-2&quot; closedby=&quot;closerequest&quot; popover=&quot;auto&quot;&gt;&#xA;<!--
 						-->&#x9;&lt;p&gt;dialog要素内の段落&lt;/p&gt;&#xA;<!--
 						-->&#x9;&lt;p&gt;&lt;button class=&quot;__button__&quot; commandfor=&quot;popover-dialog-2&quot; command=&quot;hide-popover&quot;&gt;button[command=&quot;hide-popover&quot;]&lt;/button&gt;&lt;/p&gt;&#xA;<!--
 						-->&lt;/dialog&gt;&#xA;<!--
@@ -1011,7 +1011,7 @@
 						-->&#x9;&lt;p&gt;&lt;button class=&quot;__button__&quot; popovertarget=&quot;popover-div-1&quot; popovertargetaction=&quot;hide&quot;&gt;button[popovertargetaction=&quot;hide&quot;]&lt;/button&gt;&lt;/p&gt;&#xA;<!--
 						-->&lt;/div&gt;&#xA;<!--
 						-->&lt;p&gt;&lt;button class=&quot;__button__&quot; commandfor=&quot;popover-div-2&quot; command=&quot;show-popover&quot;&gt;button[command=&quot;show-popover&quot;]&lt;/button&gt;&lt;/p&gt;&#xA;<!--
-						-->&lt;div id=&quot;popover-div-2&quot; popover=&quot;auto&quot; style=&quot;--inline-size: 640px;&quot;&gt;&#xA;<!--
+						-->&lt;div id=&quot;popover-div-2&quot; popover=&quot;auto&quot;&gt;&#xA;<!--
 						-->&#x9;&lt;p&gt;div要素内の段落&lt;/p&gt;&#xA;<!--
 						-->&#x9;&lt;p&gt;&lt;button class=&quot;__button__&quot; commandfor=&quot;popover-div-2&quot; command=&quot;hide-popover&quot;&gt;button[command=&quot;hide-popover&quot;]&lt;/button&gt;&lt;/p&gt;&#xA;<!--
 						-->&lt;/div&gt;&#xA;<!--
@@ -1023,7 +1023,7 @@
 						<p><button class="__button__" aria-controls="non-modal-dialog" onclick="document.getElementById('non-modal-dialog').close();">button[onclick*="close()"]</button></p>
 					</dialog>
 					<p><button class="__button__" commandfor="modal-dialog" command="show-modal">button[command="show-modal"]</button></p>
-					<dialog id="modal-dialog" closedby="closerequest" style="--inline-size: 640px;">
+					<dialog id="modal-dialog" closedby="closerequest">
 						<p>dialog要素内の段落</p>
 						<p><button class="__button__" commandfor="modal-dialog" command="close">button[command="close"]</button></p>
 					</dialog>
@@ -1033,7 +1033,7 @@
 						<p><button class="__button__" popovertarget="popover-dialog-1" popovertargetaction="hide">button[popovertargetaction="hide"]</button></p>
 					</dialog>
 					<p><button class="__button__" commandfor="popover-dialog-2" command="show-popover">button[command="show-popover"]</button></p>
-					<dialog id="popover-dialog-2" closedby="closerequest" popover="auto" style="--inline-size: 640px;">
+					<dialog id="popover-dialog-2" closedby="closerequest" popover="auto">
 						<p>dialog要素内の段落</p>
 						<p><button class="__button__" commandfor="popover-dialog-2" command="hide-popover">button[command="hide-popover"]</button></p>
 					</dialog>
@@ -1043,7 +1043,7 @@
 						<p><button class="__button__" popovertarget="popover-div-1" popovertargetaction="hide">button[popovertargetaction="hide"]</button></p>
 					</div>
 					<p><button class="__button__" commandfor="popover-div-2" command="show-popover">button[command="show-popover"]</button></p>
-					<div id="popover-div-2" popover="auto" style="--inline-size: 640px;">
+					<div id="popover-div-2" popover="auto">
 						<p>div要素内の段落</p>
 						<p><button class="__button__" commandfor="popover-div-2" command="hide-popover">button[command="hide-popover"]</button></p>
 					</div>
@@ -1703,21 +1703,18 @@
 							-->&#x9;&lt;a class=&quot;__button__&quot; href=&quot;#&quot;&gt;ボタン&lt;/a&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color: var(--red);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color: var(--yellow);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color: var(--green);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color: var(--blue);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color: var(--gray);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color--: var(--red);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color--: var(--yellow);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color--: var(--green);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color--: var(--blue);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color--: var(--gray);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color: var(--light-dark); --background: var(--red);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color: var(--light-dark); --background: var(--yellow);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color: var(--light-dark); --background: var(--green);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color: var(--light-dark); --background: var(--blue);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color: var(--light-dark); --background: var(--gray);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&lt;/p&gt;&#xA;<!--
-							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color: var(--light-dark); --background: var(--dark-light); --border-radius: 1e6px; --font-size: var(--em_l); --inline-size: 100%; --padding-block: calc(1.5em - 0.5lh); --padding-inline: 1.5em;&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--red);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--yellow);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--green);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--blue);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--gray);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							--></code></pre>
 						</figure>
@@ -1737,22 +1734,18 @@
 							<a class="__button__" href="#">ボタン</a>
 						</p>
 						<p>
-							<button class="__button__" type="button" style="--color: var(--red);">ボタン</button>
-							<button class="__button__" type="button" style="--color: var(--yellow);">ボタン</button>
-							<button class="__button__" type="button" style="--color: var(--green);">ボタン</button>
-							<button class="__button__" type="button" style="--color: var(--blue);">ボタン</button>
-							<button class="__button__" type="button" style="--color: var(--gray);">ボタン</button>
-						</p>
-						</div>
-						<p>
-							<button class="__button__" type="button" style="--color: var(--light-dark); --background: var(--red);">ボタン</button>
-							<button class="__button__" type="button" style="--color: var(--light-dark); --background: var(--yellow);">ボタン</button>
-							<button class="__button__" type="button" style="--color: var(--light-dark); --background: var(--green);">ボタン</button>
-							<button class="__button__" type="button" style="--color: var(--light-dark); --background: var(--blue);">ボタン</button>
-							<button class="__button__" type="button" style="--color: var(--light-dark); --background: var(--gray);">ボタン</button>
+							<button class="__button__" type="button" style="--color--: var(--red);">ボタン</button>
+							<button class="__button__" type="button" style="--color--: var(--yellow);">ボタン</button>
+							<button class="__button__" type="button" style="--color--: var(--green);">ボタン</button>
+							<button class="__button__" type="button" style="--color--: var(--blue);">ボタン</button>
+							<button class="__button__" type="button" style="--color--: var(--gray);">ボタン</button>
 						</p>
 						<p>
-							<button class="__button__" type="button" style="--color: var(--light-dark); --background: var(--dark-light); --border-radius: 1e6px; --font-size: var(--em_l); --inline-size: 100%; --padding-block: calc(1.5em - 0.5lh); --padding-inline: 1.5em;">ボタン</button>
+							<button class="__button__" type="button" style="--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--red);">ボタン</button>
+							<button class="__button__" type="button" style="--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--yellow);">ボタン</button>
+							<button class="__button__" type="button" style="--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--green);">ボタン</button>
+							<button class="__button__" type="button" style="--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--blue);">ボタン</button>
+							<button class="__button__" type="button" style="--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--gray);">ボタン</button>
 						</p>
 					</section>
 					<section>
@@ -1836,11 +1829,11 @@
 							<figcaption>HTML</figcaption>
 							<pre class="__pre__code"><code><!--
 							-->&lt;figure class=&quot;__figure__&quot;&gt;&#xA;<!--
-							-->&#x9;&lt;iframe src=&quot;example.html&quot; width=&quot;960&quot; height=&quot;540&quot; style=&quot;--aspect-ratio: 16 / 9;&quot;&gt;&lt;/iframe&gt;&#xA;<!--
+							-->&#x9;&lt;iframe src=&quot;example.html&quot; width=&quot;960&quot; height=&quot;540&quot; style=&quot;--aspect-ratio--: 16 / 9;&quot;&gt;&lt;/iframe&gt;&#xA;<!--
 							-->&lt;/figure&gt;&#xA;<!--
 							--></code></pre>
 						</figure>
-						<figure class="__figure__"><iframe src="index.html" width="960" height="540" style="--aspect-ratio: 16 / 9;"></iframe></figure>
+						<figure class="__figure__"><iframe src="index.html" width="960" height="540" style="--aspect-ratio--: 16 / 9;"></iframe></figure>
 					</section>
 					<section>
 						<h4>エンベッド</h4>

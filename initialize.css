@@ -148,7 +148,7 @@
 		--sp-ratio: calc(1 / 2);
 	}
 }
-:is(hgroup, dl) > *, div:where(:not([class^="_"], [class*=" _"], [style*="--:"])) {
+:where(hgroup, dl) > *, :where(div:not([class^="_"], [class*=" _"], [style*="--:"])) {
 	margin-block: 0;
 }
 dialog, :where([popover]) {
@@ -381,8 +381,8 @@ mark {
 /**
  * Embedded content
  */
-iframe:where([style~="--aspect-ratio:"]) {
-	aspect-ratio: var(--aspect-ratio);
+iframe:where([style~="--aspect-ratio--:"]) {
+	aspect-ratio: var(--aspect-ratio--);
 	block-size: auto;
 }
 

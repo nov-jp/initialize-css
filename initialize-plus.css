@@ -1,23 +1,17 @@
 /*! initialize-plus.css v0.1 | MIT License | https://github.com/nov-jp/initialize-css */
 
 /**
- * [class*="__box__"]:is([style~="--border:"], [style~="--border-radius:"], [style~="--inline-size:"], [style~="--margin-block:"], [style~="--margin-inline:"], [style~="--padding-block:"], [style~="--padding-inline:"], [style~="--is-inset:"])?
+ * [class*="__box__"]:is([style~="--inline-size--:"], [style~="--margin-block--:"], [style~="--margin-inline--:"], [style~="--padding-block--:"], [style~="--padding-inline--:"], [style~="--is-inset:"])?
  */
 [class*="__box__"] {
-	--inline-size: 100cqi;
-	--margin-inline: 0px;
-	--padding-inline: 0px;
+	--inline-size--: 100cqi;
+	--margin-inline--: 0px;
+	--padding-inline--: 0px;
 	--is-inset: -1;
-	margin-inline: calc(50% - 50cqi + clamp(var(--margin-inline), -1e6px * var(--is-inset), max(var(--margin-inline), var(--inline-size) / -2 + 50cqi)));
-	padding-inline: clamp(var(--padding-inline), 1e6px * var(--is-inset), max(var(--padding-inline), var(--inline-size) / -2 + 50cqi));
+	margin-inline: calc(50% - 50cqi + clamp(var(--margin-inline--), -1e6px * var(--is-inset), max(var(--margin-inline--), var(--inline-size--) / -2 + 50cqi)));
+	padding-inline: clamp(var(--padding-inline--), 1e6px * var(--is-inset), max(var(--padding-inline--), var(--inline-size--) / -2 + 50cqi));
 
-	&[style~="--border:"] {
-		border: var(--border);
-	}
-	&[style~="--border-radius:"] {
-		border-radius: var(--border-radius);
-	}
-	&:not([style~="--inline-size:"]) {
+	&:not([style~="--inline-size--:"]) {
 		&:has(+ &) {
 			margin-block-end: 0;
 		}
@@ -25,45 +19,45 @@
 			margin-block-start: 0;
 		}
 	}
-	&[style~="--margin-block:"] {
-		margin-block: var(--margin-block);
+	&:where([style~="--margin-block--:"]) {
+		margin-block: var(--margin-block--);
 	}
-	&[style~="--padding-block:"] {
-		padding-block: var(--padding-block);
+	&:where([style~="--padding-block--:"]) {
+		margin-block: var(--padding-block--);
 	}
 }
 
 /**
- * hr[class*="__hr__"]:is([style~="--border-style:"], [style~="--border-width:"], [style~="--border-color:"], [style~="--inline-size:"])?
+ * hr[class*="__hr__"]:is([style~="--border-style--:"], [style~="--border-width--:"], [style~="--border-color--:"], [style~="--inline-size--:"])?
  */
 [class*="__hr__"] {
-	--border-style: solid;
-	--border-width: var(--line_xf);
-	--border-color: var(--sheer-text);
-	--inline-size: calc(100% / 5);
-	border: var(--border-width) var(--border-color);
-	border-block-start-style: var(--border-style);
-	inline-size: var(--inline-size);
+	--border-style--: solid;
+	--border-width--: var(--line_xf);
+	--border-color--: var(--sheer-text);
+	--inline-size--: calc(100% / 3);
+	border: var(--border-width--) var(--border-color--);
+	border-block-start-style: var(--border-style--);
+	inline-size: var(--inline-size--);
 }
 
 /**
- * pre[class*="__pre__"]:is([style~="--background-color:"], [style~="--border-width:"], [style~="--border-color:"], [style~="--border-radius:"])?
+ * pre[class*="__pre__"]:is([style~="--background--:"], [style~="--border-width--:"], [style~="--border-color--:"], [style~="--border-radius--:"], [style~="--color--:"])?
  * pre.__pre__code
  * > code
  * pre.__pre__samp
  * > samp
  */
 [class*="__pre__"] {
-	--background-color: transparent;
-	--border-width: var(--line_xf);
-	--border-color: var(--sheerer-text);
-	--border-radius: calc(var(--border-width) * 2);
-	--color: inherit;
+	--background--: none;
+	--border-width--: var(--line_xf);
+	--border-color--: var(--sheerer-text);
+	--border-radius--: calc(var(--border-width--) * 2);
+	--color--: inherit;
 	--leading: 0.25rem;
-	background: var(--background-color);
-	border: solid var(--border-width) var(--border-color);
-	border-radius: var(--border-radius);
-	color: var(--color);
+	background: var(--background--);
+	border: solid var(--border-width--) var(--border-color--);
+	border-radius: var(--border-radius--);
+	color: var(--color--);
 	max-block-size: calc(100dvb * 3 / 4);
 	overflow: auto;
 	padding-block: calc(var(--sp_l) + 0.5em - 0.5lh);
@@ -72,12 +66,12 @@
 }
 .__pre__code, .__pre__samp {
 	--leading: 1rem;
-	background: linear-gradient(180deg, transparent 50%, var(--sheerest-gray) 50%) local 0 0 / 2lh 2lh, var(--background-color);
+	background: linear-gradient(180deg, transparent 50%, var(--sheerest-gray) 50%) local 0 0 / 2lh 2lh, var(--background--);
 	padding-block: 1lh;
 }
 .__pre__code {
-	--background-color: var(--dark-light);
-	--color: var(--light-dark);
+	--background--: var(--dark-light);
+	--color--: var(--light-dark);
 }
 
 /**
@@ -104,15 +98,15 @@
 }
 
 /**
- * ul[class*="__ul__"][style~="--list-style-type:"]?
+ * ul[class*="__ul__"][style~="--list-style-type--:"]?
  * > li
  */
 .__ul__compact {
-	--list-style-type: "";
+	--list-style-type--: "";
 	display: flex;
 	flex-flow: wrap;
 	gap: 0 1em;
-	list-style: var(--list-style-type) inside;
+	list-style: var(--list-style-type--) inside;
 
 	& > li {
 		margin: 0;
@@ -120,7 +114,7 @@
 }
 
 /**
- * dl[class*="__dl__"]:is([style~="--border-width:"], [style~="--border-color:"])?
+ * dl[class*="__dl__"]:is([style~="--border-width--:"], [style~="--border-color--:"])?
  * > div > :is(dt, dd)
  */
 .__dl__noindent {
@@ -148,9 +142,9 @@
 	}
 }
 [class*="__dl__compact-group"] {
-	--border-width: var(--line_xf);
-	--border-color: var(--sheerest-text);
-	border-block: solid var(--border-width) var(--border-color);
+	--border-width--: var(--line_xf);
+	--border-color--: var(--sheerest-text);
+	border-block: solid var(--border-width--) var(--border-color--);
 	gap: 0;
 
 	& > div {
@@ -158,7 +152,7 @@
 		padding-block: calc(0.5lh - 0.5em);
 
 		&:is(* + *) {
-			border-block-start: solid var(--border-width) var(--border-color);
+			border-block-start: solid var(--border-width--) var(--border-color--);
 		}
 	}
 }
@@ -166,9 +160,9 @@
 	flex: 100%;
 }
 .__dl__tabular {
-	--border-width: var(--line_xf);
-	--border-color: var(--sheerest-text);
-	border-block: solid var(--border-width) var(--border-color);
+	--border-width--: var(--line_xf);
+	--border-color--: var(--sheerest-text);
+	border-block: solid var(--border-width--) var(--border-color--);
 	display: grid;
 	grid: auto-flow / repeat(100, minmax(min-content, auto)) minmax(min-content, 100%);
 	overflow: auto;
@@ -181,7 +175,7 @@
 		padding-block: calc(0.5lh - 0.5em);
 
 		&:is(* + *) {
-			border-block-start: solid var(--border-width) var(--border-color);
+			border-block-start: solid var(--border-width--) var(--border-color--);
 		}
 		& > * {
 			margin: 0;
@@ -196,47 +190,47 @@
 }
 
 /**
- * div[class*="__div-table__"]:is([style~="--border-width:"], [style~="--border-color:"], [style~="--border-radius:"])?
- * > table:is([style~="--inline-size:"], [style~="--table-layout:"])?
+ * div[class*="__div-table__"]:is([style~="--border-width--:"], [style~="--border-color--:"], [style~="--border-radius--:"])?
+ * > table:is([style~="--inline-size--:"], [style~="--table-layout--:"])?
  *   ( > caption )?
  *   > :is(tbody, thead, tfoot) > tr > :is(td, th)
  */
 [class*="__div-table__"] {
-	--border-width: var(--line_xf);
-	--border-color: var(--sheerer-text);
-	--border-radius: calc(var(--border-width) * 2);
-	border: solid var(--border-width) var(--border-color);
-	border-radius: var(--border-radius);
+	--border-width--: var(--line_xf);
+	--border-color--: var(--sheerer-text);
+	--border-radius--: calc(var(--border-width--) * 2);
+	border: solid var(--border-width--) var(--border-color--);
+	border-radius: var(--border-radius--);
 	max-block-size: calc(100dvb * 3 / 4);
 	overflow: auto;
 	scroll-snap-type: both mandatory;
 
 	& > table {
-		--inline-size: auto;
-		--table-layout: auto;
+		--inline-size--: auto;
+		--table-layout--: auto;
 		border: hidden;
 		border-collapse: collapse;
 		border-spacing: 0;
-		inline-size: var(--inline-size);
+		inline-size: var(--inline-size--);
 		min-inline-size: 100%;
-		table-layout: var(--table-layout);
+		table-layout: var(--table-layout--);
 
 		& > caption {
 			--leading-scale: calc(1 / 2);
-			border-block-end: solid calc(var(--border-width) * 2) var(--border-color);
+			border-block-end: solid calc(var(--border-width--) * 2) var(--border-color--);
 			font-weight: inherit;
 			padding-block: calc(var(--sp_m) + 0.5em - 0.5lh);
 			padding-inline: var(--sp_m);
 			scroll-snap-align: start;
 		}
 		& > tbody {
-			border-block: solid calc(var(--border-width) * 2) var(--border-color);
+			border-block: solid calc(var(--border-width--) * 2) var(--border-color--);
 		}
 		& > * > tr {
 			scroll-snap-align: start;
 
 			& > * {
-				border: solid var(--border-width) var(--border-color);
+				border: solid var(--border-width--) var(--border-color--);
 				padding-block: calc(var(--sp_m) + 0.5em - 0.5lh);
 				padding-inline: var(--sp_m);
 				scroll-snap-align: start;
@@ -246,47 +240,47 @@
 }
 
 /**
- * figure[class*="__figure__"]:is([style~="--inline-size:"], [style~="--margin-inline:"])?
- * ( > figcaption[style~="--text-align:"]? )?
+ * figure[class*="__figure__"]:is([style~="--inline-size--:"], [style~="--margin-inline--:"])?
+ * ( > figcaption[style~="--text-align--:"]? )?
  */
 [class*="__figure__"] {
-	--inline-size: auto;
-	--margin-inline: auto;
-	inline-size: var(--inline-size);
-	margin-inline: var(--margin-inline);
+	--inline-size--: auto;
+	--margin-inline--: auto;
+	inline-size: var(--inline-size--);
+	margin-inline: var(--margin-inline--);
 
 	&:not(:has(> :is(p, pre, blockquote, ol, ul, dl, figure, div, table))) {
-		--inline-size: fit-content;
+		--inline-size--: fit-content;
 	}
 	& > figcaption {
+		--text-align--: start;
 		--leading-scale: calc(1 / 2);
-		--text-align: start;
 		inline-size: 0;
 		min-inline-size: 100%;
 		max-inline-size: 100%;
 		padding-block: calc(0.5lh - 0.5em);
-		text-align: var(--text-align);
+		text-align: var(--text-align--);
 		text-wrap: balance;
 		text-wrap: pretty;
 
 		&:not(:has(+*)) {
-			--text-align: end;
+			--text-align--: end;
 		}
 	}
 }
 
 /**
- * details[class*="__details__"]:is([style~="--border-width:"], [style~="--border-color:"], [style~="--border-radius:"])?
+ * details[class*="__details__"]:is([style~="--border-width--:"], [style~="--border-color--:"], [style~="--border-radius--:"])?
  * > summary
  */
 [class*="__details__"] {
-	--border-width: var(--line_xf);
-	--border-color: var(--sheerer-text);
-	--border-radius: calc(var(--border-width) * 2);
+	--border-width--: var(--line_xf);
+	--border-color--: var(--sheerer-text);
+	--border-radius--: calc(var(--border-width--) * 2);
 	--fr: 1fr;
 	--time: calc(1s / 4);
-	border: solid var(--border-width) var(--border-color);
-	border-radius: var(--border-radius);
+	border: solid var(--border-width--) var(--border-color--);
+	border-radius: var(--border-radius--);
 	display: grid;
 	grid: auto var(--fr) / 1fr;
 	align-content: start;
@@ -299,7 +293,7 @@
 		padding-inline: var(--sp_m);
 	}
 	&::details-content {
-		border-block-start: solid var(--border-width) var(--border-color);
+		border-block-start: solid var(--border-width--) var(--border-color--);
 		content-visibility: visible;
 		overflow: hidden;
 		padding-block: calc(var(--sp_l) + 0.5em - 0.5lh);
@@ -325,15 +319,15 @@
 }
 
 /**
- * div[class*="__div-tabs__"]:is([style~="--border-width:"], [style~="--border-color:"])?
+ * div[class*="__div-tabs__"]:is([style~="--border-width--:"], [style~="--border-color--:"])?
  * > ul[role="tablist"]
  *   > li[role="presentation"] > label[id="${ TAB }"][role="tab"] > input[type="radio"][name][aria-controls="${ TAB_PANEL }"]( [checked] )?
  * > ul
  *   > li[id="${ TAB_PANEL }"][role="tabpanel"][aria-labelledby="${ TAB }"]
  */
 [class*="__div-tabs__"] {
-	--border-width: var(--line_xf);
-	--border-color: var(--sheerer-text);
+	--border-width--: var(--line_xf);
+	--border-color--: var(--sheerer-text);
 	display: flex;
 	flex-flow: column;
 	gap: var(--sp_m);
@@ -342,7 +336,7 @@
 		display: none;
 	}
 	& > ul:not(* + *) {
-		border: var(--border-width) var(--border-color);
+		border: var(--border-width--) var(--border-color--);
 		border-block-end-style: solid;
 		display: flex;
 		gap: 0 var(--sp_m);
@@ -350,12 +344,12 @@
 		margin: 0;
 
 		& > li {
-			border: var(--border-width) transparent;
+			border: var(--border-width--) transparent;
 			border-block-end-style: solid;
 			color: var(--sheerer-text);
 			display: block;
 			margin: 0;
-			margin-block-end: calc(var(--border-width) * -1);
+			margin-block-end: calc(var(--border-width--) * -1);
 
 			& > label {
 				block-size: 100%;
@@ -422,7 +416,7 @@
 				border-style: none;
 				border-inline-end-style: solid;
 				margin: 0;
-				margin-inline-end: calc(var(--border-width) * -1);
+				margin-inline-end: calc(var(--border-width--) * -1);
 
 				& > label {
 					block-size: auto;
@@ -564,10 +558,10 @@
 	}
 }
 [class*="__div-carousel__"] {
+	--easing: ease;
 	--has-nth: 1;
 	--keyframes: none;
 	--time: 4s;
-	--easing: ease;
 	display: grid;
 	grid: auto auto 1fr / 100%;
 	overflow: hidden;
@@ -786,39 +780,36 @@
 }
 
 /**
- * [class*="__button__"]:is(input, button, a):is([style~="--background:"], [style~="--border-width:"], [style~="--border-radius:"], [style~="--color:"], [style~="--font-size:"], [style~="--inline-size:"], [style~="--padding-block:"], [style~="--padding-inline:"])?
+ * [class*="__button__"]:is(input, button, a):is([style~="--background--:"], [style~="--border-width--:"], [style~="--border-color--:"], [style~="--border-radius--:"], [style~="--color--:"], [style~="--inline-size--:"], [style~="--padding-block--:"], [style~="--padding-inline--:"])?
  */
 [class*="__button__"] {
-	--background: none;
-	--border-width: var(--line_xf);
-	--border-radius: calc(var(--border-width) * 2);
-	--color: inherit;
-	--font-size: inherit;
-	--inline-size: auto;
-	--padding-block: calc(0.5lh - 0.5em);
-	--padding-inline: calc(2lh - 2em);
+	--background--: none;
+	--border-width--: var(--line_xf);
+	--border-color--: currentcolor;
+	--border-radius--: calc(var(--border-width--) * 2);
+	--color--: inherit;
+	--padding-block--: calc(0.5lh - 0.5em);
+	--padding-inline--: calc(2lh - 2em);
 	appearance: none;
 	backdrop-filter: blur(2px);
-	background: var(--background);
-	border: solid var(--border-width);
-	border-radius: var(--border-radius);
-	color: var(--color);
+	background: var(--background--);
+	border: solid var(--border-width--) var(--border-color--);
+	border-radius: var(--border-radius--);
+	color: var(--color--);
 	display: inline-block;
-	font-size: var(--font-size);
 	font-weight: bolder;
-	inline-size: var(--inline-size);
 	max-inline-size: 100%;
 	isolation: isolate;
 	margin-block: calc(0.5lh - 0.5em);
-	padding-block: var(--padding-block);
-	padding-inline: var(--padding-inline);
+	padding-block: var(--padding-block--);
+	padding-inline: var(--padding-inline--);
 	text-align: center;
 	text-decoration: none;
 	text-wrap: balance;
 	text-wrap: pretty;
 	vertical-align: middle;
 
-	&[style~="--background:"] {
+	&[style~="--background--:"] {
 		border-color: transparent;
 	}
 	&:not(:active, :disabled) {
@@ -874,39 +865,39 @@
  */
 @supports selector(::-webkit-slider-thumb) or selector(::-moz-range-thumb) {
 	[class*="__range__"] {
-		--is-rtl: -1;
-		--block-size: 1rem;
 		--border: solid var(--line_xf);
 		--border-radius: 1e6px;
-		--box-shadow: calc((1e6px + var(--line_xf) + var(--block-size)) * var(--is-rtl)) 0 0 1e6px var(--blue), calc((1e6px + var(--line_xf) + var(--block-size)) * var(--is-rtl) * -1) 0 0 1e6px var(--sheerer-text);
+		--is-rtl: -1;
+		--box-shadow: calc((1e6px + var(--line_xf) + var(--size)) * var(--is-rtl)) 0 0 1e6px var(--blue), calc((1e6px + var(--line_xf) + var(--size)) * var(--is-rtl) * -1) 0 0 1e6px var(--sheerer-text);
 		--x: calc(var(--line_m) / 2);
 		--clip-path: polygon(0% calc(var(--x) * -1), 100% calc(var(--x) * -1), 100% calc(50% - var(--x)), calc(100% + 1e6px) calc(50% - var(--x)), calc(100% + 1e6px) calc(50% + var(--x)), 100% calc(50% + var(--x)), 100% calc(100% + var(--x)), 0% calc(100% + var(--x)), 0% calc(50% - var(--x)), calc(0% - 1e6px) calc(50% - var(--x)), calc(0% - 1e6px) calc(50% + var(--x)), 0% calc(50% + var(--x)));
+		--size: 1rem;
 		appearance: none;
 		background: none;
-		block-size: var(--block-size);
+		block-size: var(--size);
 		color: inherit;
 		inline-size: 100%;
 		overflow: hidden;
 
 		&::-webkit-slider-thumb {
 			appearance: none;
-			block-size: var(--block-size);
+			block-size: var(--size);
 			border: var(--border);
 			border-radius: var(--border-radius);
 			box-shadow: var(--box-shadow);
 			clip-path: var(--clip-path);
-			inline-size: var(--block-size);
+			inline-size: var(--size);
 		}
 		&::-moz-range-thumb {
 			background: none;
-			block-size: var(--block-size);
+			block-size: var(--size);
 			border: var(--border);
 			border-radius: var(--border-radius);
 			box-shadow: var(--box-shadow);
 			box-sizing: border-box;
 			clip-path: var(--clip-path);
 			color: inherit;
-			inline-size: var(--block-size);
+			inline-size: var(--size);
 		}
 		&:disabled {
 			opacity: var(--alpha_m);
