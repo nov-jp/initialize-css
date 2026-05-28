@@ -16,7 +16,7 @@ HTML の各要素のスタイルを初期化するための CSSファイル
 HTMLの`head`要素内で読み込みます。
 
 ```HTML
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/initialize.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/dist/initialize.min.css" />
 ```
 
 必要に応じてカスタムプロパティを上書きする initialize-vars.css を作成し、
@@ -33,15 +33,15 @@ HTMLの`head`要素内で読み込みます。
 そのファイルを読み込みます。
 
 ```HTML
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/initialize.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/dist/initialize.min.css" />
 <link rel="stylesheet" href="path/to/initialize-vars.css" />
 ```
 
 デザイン性が必要ならプラスも読み込み、
 
 ```HTML
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/initialize.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/initialize-plus.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/dist/initialize.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/dist/initialize-plus.min.css" />
 <link rel="stylesheet" href="path/to/initialize-vars.css" />
 ```
 
@@ -70,4 +70,4 @@ HTMLの`head`要素内で読み込みます。
 
 ## ライセンス
 
-The MIT License. Copyright 2026 Nobuo Nakayama (https://github.com/nov-jp/).
+The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/).
