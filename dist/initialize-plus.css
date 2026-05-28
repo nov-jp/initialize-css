@@ -1,4 +1,4 @@
-/*! initialize-plus.css v0.1 | MIT License | https://github.com/nov-jp/initialize-css */
+/*! The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/). */
 
 /**
  * [class*="__box__"]:is([style~="--inline-size--:"], [style~="--margin-block--:"], [style~="--margin-inline--:"], [style~="--padding-block--:"], [style~="--padding-inline--:"], [style~="--is-inset:"])?
@@ -8,6 +8,7 @@
 	--margin-inline--: 0px;
 	--padding-inline--: 0px;
 	--is-inset: -1;
+	inline-size: auto;
 	margin-inline: calc(50% - 50cqi + clamp(var(--margin-inline--), -1e6px * var(--is-inset), max(var(--margin-inline--), var(--inline-size--) / -2 + 50cqi)));
 	padding-inline: clamp(var(--padding-inline--), 1e6px * var(--is-inset), max(var(--padding-inline--), var(--inline-size--) / -2 + 50cqi));
 
@@ -19,11 +20,11 @@
 			margin-block-start: 0;
 		}
 	}
-	&:where([style~="--margin-block--:"]) {
+	&[style*="--margin-block--:"] {
 		margin-block: var(--margin-block--);
 	}
-	&:where([style~="--padding-block--:"]) {
-		margin-block: var(--padding-block--);
+	&[style*="--padding-block--:"] {
+		padding-block: var(--padding-block--);
 	}
 }
 
@@ -32,8 +33,8 @@
  */
 [class*="__hr__"] {
 	--border-style--: solid;
-	--border-width--: var(--line_xf);
-	--border-color--: var(--sheer-text);
+	--border-width--: var(--l_xf);
+	--border-color--: currentcolor;
 	--inline-size--: calc(100% / 3);
 	border: var(--border-width--) var(--border-color--);
 	border-block-start-style: var(--border-style--);
@@ -49,7 +50,7 @@
  */
 [class*="__pre__"] {
 	--background--: none;
-	--border-width--: var(--line_xf);
+	--border-width--: var(--l_xf);
 	--border-color--: var(--sheerer-text);
 	--border-radius--: calc(var(--border-width--) * 2);
 	--color--: inherit;
@@ -142,7 +143,7 @@
 	}
 }
 [class*="__dl__compact-group"] {
-	--border-width--: var(--line_xf);
+	--border-width--: var(--l_xf);
 	--border-color--: var(--sheerest-text);
 	border-block: solid var(--border-width--) var(--border-color--);
 	gap: 0;
@@ -160,7 +161,7 @@
 	flex: 100%;
 }
 .__dl__tabular {
-	--border-width--: var(--line_xf);
+	--border-width--: var(--l_xf);
 	--border-color--: var(--sheerest-text);
 	border-block: solid var(--border-width--) var(--border-color--);
 	display: grid;
@@ -196,7 +197,7 @@
  *   > :is(tbody, thead, tfoot) > tr > :is(td, th)
  */
 [class*="__div-table__"] {
-	--border-width--: var(--line_xf);
+	--border-width--: var(--l_xf);
 	--border-color--: var(--sheerer-text);
 	--border-radius--: calc(var(--border-width--) * 2);
 	border: solid var(--border-width--) var(--border-color--);
@@ -274,7 +275,7 @@
  * > summary
  */
 [class*="__details__"] {
-	--border-width--: var(--line_xf);
+	--border-width--: var(--l_xf);
 	--border-color--: var(--sheerer-text);
 	--border-radius--: calc(var(--border-width--) * 2);
 	--fr: 1fr;
@@ -326,7 +327,7 @@
  *   > li[id="${ TAB_PANEL }"][role="tabpanel"][aria-labelledby="${ TAB }"]
  */
 [class*="__div-tabs__"] {
-	--border-width--: var(--line_xf);
+	--border-width--: var(--l_xf);
 	--border-color--: var(--sheerer-text);
 	display: flex;
 	flex-flow: column;
@@ -633,16 +634,16 @@
 		z-index: 2;
 
 		& > li {
-			--opacity_1: var(--alpha_m);
-			--opacity_3: var(--alpha_m);
+			--opacity_1: var(--a_m);
+			--opacity_3: var(--a_m);
 			display: block;
 			margin: 0;
-			opacity: var(--alpha_m);
+			opacity: var(--a_m);
 
 			& > label {
 				background: var(--dark-light);
 				block-size: 1rem;
-				border: solid var(--line_f) var(--light-dark);
+				border: solid var(--l_f) var(--light-dark);
 				border-radius: 1rem;
 				display: block;
 				inline-size: 1rem;
@@ -768,8 +769,8 @@
  * form[class*="__form__"]
  */
 .__form__validate :is(input, select, textarea):is([min], [max], [step], [minlength], [maxlength], [pattern], :required):not(:focus-visible) {
-	outline: solid var(--line_xf) transparent;
-	outline-offset: var(--line_xf);
+	outline: solid var(--l_xf) transparent;
+	outline-offset: var(--l_xf);
 
 	&:valid {
 		outline-color: var(--green);
@@ -784,7 +785,7 @@
  */
 [class*="__button__"] {
 	--background--: none;
-	--border-width--: var(--line_xf);
+	--border-width--: var(--l_xf);
 	--border-color--: currentcolor;
 	--border-radius--: calc(var(--border-width--) * 2);
 	--color--: inherit;
@@ -821,7 +822,7 @@
 		}
 	}
 	&:disabled {
-		opacity: var(--alpha_m);
+		opacity: var(--a_m);
 	}
 }
 
@@ -833,7 +834,7 @@
 [class*="__text__"], [class*="__file__"], [class*="__select__"] {
 	appearance: none;
 	background: none;
-	border: solid var(--line_xf) var(--sheer-text);
+	border: solid var(--l_xf) var(--sheer-text);
 	border-radius: var(--radius_xs);
 	color: inherit;
 	margin-block: calc(0.5lh - 0.5em);
@@ -841,7 +842,7 @@
 	padding-inline: calc(1lh - 1em);
 
 	&:disabled {
-		opacity: var(--alpha_m);
+		opacity: var(--a_m);
 	}
 }
 [class*="__text__"]:not([cols], [size]), [class*="__file__"], [class*="__select__"]:is([multiple], [size]) {
@@ -865,11 +866,11 @@
  */
 @supports selector(::-webkit-slider-thumb) or selector(::-moz-range-thumb) {
 	[class*="__range__"] {
-		--border: solid var(--line_xf);
+		--border: solid var(--l_xf);
 		--border-radius: 1e6px;
 		--is-rtl: -1;
-		--box-shadow: calc((1e6px + var(--line_xf) + var(--size)) * var(--is-rtl)) 0 0 1e6px var(--blue), calc((1e6px + var(--line_xf) + var(--size)) * var(--is-rtl) * -1) 0 0 1e6px var(--sheerer-text);
-		--x: calc(var(--line_m) / 2);
+		--box-shadow: calc((1e6px + var(--l_xf) + var(--size)) * var(--is-rtl)) 0 0 1e6px var(--blue), calc((1e6px + var(--l_xf) + var(--size)) * var(--is-rtl) * -1) 0 0 1e6px var(--sheerer-text);
+		--x: calc(var(--l_m) / 2);
 		--clip-path: polygon(0% calc(var(--x) * -1), 100% calc(var(--x) * -1), 100% calc(50% - var(--x)), calc(100% + 1e6px) calc(50% - var(--x)), calc(100% + 1e6px) calc(50% + var(--x)), 100% calc(50% + var(--x)), 100% calc(100% + var(--x)), 0% calc(100% + var(--x)), 0% calc(50% - var(--x)), calc(0% - 1e6px) calc(50% - var(--x)), calc(0% - 1e6px) calc(50% + var(--x)), 0% calc(50% + var(--x)));
 		--size: 1rem;
 		appearance: none;
@@ -900,7 +901,7 @@
 			inline-size: var(--size);
 		}
 		&:disabled {
-			opacity: var(--alpha_m);
+			opacity: var(--a_m);
 		}
 		&:dir(rtl) {
 			--is-rtl: 1;
@@ -916,7 +917,7 @@
 		appearance: none;
 		background: none;
 		block-size: 1lh;
-		border: solid var(--line_xf);
+		border: solid var(--l_xf);
 		border-radius: 1e6px;
 		color: inherit;
 		inline-size: 1lh;
@@ -937,7 +938,7 @@
 			min-inline-size: 0;
 		}
 		&:disabled {
-			opacity: var(--alpha_m);
+			opacity: var(--a_m);
 		}
 	}
 }
@@ -956,7 +957,7 @@
 	appearance: none;
 	background: none;
 	block-size: 1rem;
-	border: solid var(--line_xf);
+	border: solid var(--l_xf);
 	color: inherit;
 	inline-size: 1rem;
 	margin-block: max(0px, 0.5lh - 0.5em);
@@ -969,7 +970,7 @@
 		display: block;
 	}
 	&:disabled {
-		opacity: var(--alpha_m);
+		opacity: var(--a_m);
 	}
 	&+span::before {
 		content: "\20";
@@ -993,7 +994,7 @@
 }
 [class*="__span-checkbox__"], [class*="__span-radio__"] {
 	--column-width: 100%;
-	border: solid var(--line_xf) var(--sheer-text);
+	border: solid var(--l_xf) var(--sheer-text);
 	border-radius: var(--radius_xs);
 	display: inline-grid;
 	grid: auto-flow / repeat(auto-fill, minmax(min(var(--column-width), 100%), 1fr));
@@ -1004,7 +1005,7 @@
 	padding-inline: calc(1lh - 1em);
 
 	&:not(:has(:enabled)) {
-		opacity: var(--alpha_m);
+		opacity: var(--a_m);
 
 		:disabled {
 			opacity: 1;
@@ -1020,7 +1021,7 @@
 		appearance: none;
 		background: none;
 		block-size: 1rem;
-		border: solid var(--line_xf) var(--sheer-text);
+		border: solid var(--l_xf) var(--sheer-text);
 		border-radius: 1e6px;
 		color: inherit;
 		inline-size: 100%;
@@ -1055,7 +1056,7 @@
 		appearance: none;
 		background: none;
 		block-size: 1rem;
-		border: solid var(--line_xf) var(--sheer-text);
+		border: solid var(--l_xf) var(--sheer-text);
 		border-radius: 1e6px;
 		color: inherit;
 		inline-size: 100%;

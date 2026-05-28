@@ -1,32 +1,15 @@
-/*! initialize.css v0.1 | MIT License | https://github.com/nov-jp/initialize-css */
+/*! The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/). */
 
 /*************
  * Variables *
  *************/
 
 :root {
-	--alpha_xl: calc(100% * 1 / 8);
-	--alpha_l: calc(100% * 1 / 4);
-	--alpha_m: calc(100% * 1 / 2);
-	--alpha_h: calc(100% * 3 / 4);
-	--alpha_xh: calc(100% * 7 / 8);
-
-	--clamp_s: calc((100% - max(480px, 30rem)) * 1e6);
-	--clamp_m: calc((100% - max(720px, 45rem)) * 1e6);
-	--clamp_l: calc((100% - max(960px, 60rem)) * 1e6);
-	--clamp_xl: calc((100% - max(1200px, 75rem)) * 1e6);
-	--clamp_rev-s: calc((max(480px, 30rem) + 1px - 100%) * 1e6);
-	--clamp_rev-m: calc((max(720px, 45rem) + 1px - 100%) * 1e6);
-	--clamp_rev-l: calc((max(960px, 60rem) + 1px - 100%) * 1e6);
-	--clamp_rev-xl: calc((max(1200px, 75rem) + 1px - 100%) * 1e6);
-	--clamp_cqi-s: calc((100cqi - max(480px, 30rem)) * 1e6);
-	--clamp_cqi-m: calc((100cqi - max(720px, 45rem)) * 1e6);
-	--clamp_cqi-l: calc((100cqi - max(960px, 60rem)) * 1e6);
-	--clamp_cqi-xl: calc((100cqi - max(1200px, 75rem)) * 1e6);
-	--clamp_cqi-rev-s: calc((max(480px, 30rem) + 1px - 100cqi) * 1e6);
-	--clamp_cqi-rev-m: calc((max(720px, 45rem) + 1px - 100cqi) * 1e6);
-	--clamp_cqi-rev-l: calc((max(960px, 60rem) + 1px - 100cqi) * 1e6);
-	--clamp_cqi-rev-xl: calc((max(1200px, 75rem) + 1px - 100cqi) * 1e6);
+	--a_xl: calc(100% * 1 / 8);
+	--a_l: calc(100% * 1 / 4);
+	--a_m: calc(100% * 1 / 2);
+	--a_h: calc(100% * 3 / 4);
+	--a_xh: calc(100% * 7 / 8);
 
 	--elev_xl: 0 1px 4px -1px;
 	--elev_l: 0 2px 8px -2px;
@@ -54,17 +37,17 @@
 	--font_mono: ui-monospace, monospace;
 	--font_default: var(--font_sans);
 
-	--line_xf: max(1px, 0.0625rem);
-	--line_f: max(1px, 0.125rem);
-	--line_m: max(1px, 0.25rem);
-	--line_b: max(1px, 0.5rem);
-	--line_xb: max(1px, 1rem);
+	--l_xf: max(1px, 0.0625rem);
+	--l_f: max(1px, 0.125rem);
+	--l_m: max(1px, 0.25rem);
+	--l_b: max(1px, 0.5rem);
+	--l_xb: max(1px, 1rem);
 
-	--radius_xs: max(1px, 0.125rem);
-	--radius_s: max(1px, 0.25rem);
-	--radius_m: max(1px, 0.5rem);
-	--radius_l: max(1px, 1rem);
-	--radius_xl: max(1px, 2rem);
+	--r_xs: max(1px, 0.125rem);
+	--r_s: max(1px, 0.25rem);
+	--r_m: max(1px, 0.5rem);
+	--r_l: max(1px, 1rem);
+	--r_xl: max(1px, 2rem);
 
 	--sp_xxs: max(1px, 1rem / 8);
 	--sp_xs: max(1px, 1rem / 4);
@@ -77,44 +60,50 @@
 	--letter-spacing: normal;
 
 	--outline-style: solid;
-	--outline-width: var(--line_m);
-	--outline-color: color-mix(in srgb, transparent, Highlight var(--alpha_m));
-	--outline-offset: calc(var(--line_m) / -2);
+	--outline-width: var(--l_m);
+	--outline-color: color-mix(in srgb, transparent, Highlight var(--a_m));
+	--outline-offset: calc(var(--l_m) / -2);
 
-	--red: #fc7459;
-	--yellow: #df9a11;
-	--green: #45b40e;
-	--blue: #6194fa;
-	--gray: #909090;
-	--black: #202020;
+	--red: #f75;
+	--yellow: #d91;
+	--green: #5b3;
+	--blue: #59f;
+	--gray: #999;
 	--white: #fff;
+	--black: #111;
 	--dark-light: light-dark(var(--black), var(--white));
 	--light-dark: light-dark(var(--white), var(--black));
 
-	--sheer-red: color-mix(in srgb, transparent, var(--red) var(--alpha_m));
-	--sheer-yellow: color-mix(in srgb, transparent, var(--yellow) var(--alpha_m));
-	--sheer-green: color-mix(in srgb, transparent, var(--green) var(--alpha_m));
-	--sheer-blue: color-mix(in srgb, transparent, var(--blue) var(--alpha_m));
-	--sheer-gray: color-mix(in srgb, transparent, var(--gray) var(--alpha_m));
-	--sheer-dark-light: color-mix(in srgb, transparent, var(--dark-light) var(--alpha_m));
-	--sheer-light-dark: color-mix(in srgb, transparent, var(--light-dark) var(--alpha_m));
-	--sheer-text: color-mix(in srgb, transparent, currentcolor var(--alpha_m));
-	--sheerer-red: color-mix(in srgb, transparent, var(--red) var(--alpha_l));
-	--sheerer-yellow: color-mix(in srgb, transparent, var(--yellow) var(--alpha_l));
-	--sheerer-green: color-mix(in srgb, transparent, var(--green) var(--alpha_l));
-	--sheerer-blue: color-mix(in srgb, transparent, var(--blue) var(--alpha_l));
-	--sheerer-gray: color-mix(in srgb, transparent, var(--gray) var(--alpha_l));
-	--sheerer-dark-light: color-mix(in srgb, transparent, var(--dark-light) var(--alpha_l));
-	--sheerer-light-dark: color-mix(in srgb, transparent, var(--light-dark) var(--alpha_l));
-	--sheerer-text: color-mix(in srgb, transparent, currentcolor var(--alpha_l));
-	--sheerest-red: color-mix(in srgb, transparent, var(--red) var(--alpha_xl));
-	--sheerest-yellow: color-mix(in srgb, transparent, var(--yellow) var(--alpha_xl));
-	--sheerest-green: color-mix(in srgb, transparent, var(--green) var(--alpha_xl));
-	--sheerest-blue: color-mix(in srgb, transparent, var(--blue) var(--alpha_xl));
-	--sheerest-gray: color-mix(in srgb, transparent, var(--gray) var(--alpha_xl));
-	--sheerest-dark-light: color-mix(in srgb, transparent, var(--dark-light) var(--alpha_xl));
-	--sheerest-light-dark: color-mix(in srgb, transparent, var(--light-dark) var(--alpha_xl));
-	--sheerest-text: color-mix(in srgb, transparent, currentcolor var(--alpha_xl));
+	--sheer-red: color-mix(in srgb, transparent, var(--red) var(--a_m));
+	--sheer-yellow: color-mix(in srgb, transparent, var(--yellow) var(--a_m));
+	--sheer-green: color-mix(in srgb, transparent, var(--green) var(--a_m));
+	--sheer-blue: color-mix(in srgb, transparent, var(--blue) var(--a_m));
+	--sheer-gray: color-mix(in srgb, transparent, var(--gray) var(--a_m));
+	--sheer-white: color-mix(in srgb, transparent, var(--white) var(--a_m));
+	--sheer-black: color-mix(in srgb, transparent, var(--black) var(--a_m));
+	--sheer-dark-light: color-mix(in srgb, transparent, var(--dark-light) var(--a_m));
+	--sheer-light-dark: color-mix(in srgb, transparent, var(--light-dark) var(--a_m));
+	--sheer-text: color-mix(in srgb, transparent, currentcolor var(--a_m));
+	--sheerer-red: color-mix(in srgb, transparent, var(--red) var(--a_l));
+	--sheerer-yellow: color-mix(in srgb, transparent, var(--yellow) var(--a_l));
+	--sheerer-green: color-mix(in srgb, transparent, var(--green) var(--a_l));
+	--sheerer-blue: color-mix(in srgb, transparent, var(--blue) var(--a_l));
+	--sheerer-gray: color-mix(in srgb, transparent, var(--gray) var(--a_l));
+	--sheerer-white: color-mix(in srgb, transparent, var(--white) var(--a_l));
+	--sheerer-black: color-mix(in srgb, transparent, var(--black) var(--a_l));
+	--sheerer-dark-light: color-mix(in srgb, transparent, var(--dark-light) var(--a_l));
+	--sheerer-light-dark: color-mix(in srgb, transparent, var(--light-dark) var(--a_l));
+	--sheerer-text: color-mix(in srgb, transparent, currentcolor var(--a_l));
+	--sheerest-red: color-mix(in srgb, transparent, var(--red) var(--a_xl));
+	--sheerest-yellow: color-mix(in srgb, transparent, var(--yellow) var(--a_xl));
+	--sheerest-green: color-mix(in srgb, transparent, var(--green) var(--a_xl));
+	--sheerest-blue: color-mix(in srgb, transparent, var(--blue) var(--a_xl));
+	--sheerest-gray: color-mix(in srgb, transparent, var(--gray) var(--a_xl));
+	--sheerest-white: color-mix(in srgb, transparent, var(--white) var(--a_xl));
+	--sheerest-black: color-mix(in srgb, transparent, var(--black) var(--a_xl));
+	--sheerest-dark-light: color-mix(in srgb, transparent, var(--dark-light) var(--a_xl));
+	--sheerest-light-dark: color-mix(in srgb, transparent, var(--light-dark) var(--a_xl));
+	--sheerest-text: color-mix(in srgb, transparent, currentcolor var(--a_xl));
 }
 
 /**************
@@ -343,7 +332,7 @@ html {
  * Grouping content
  */
 hr {
-	border: var(--line_xf) var(--sheer-text);
+	border: var(--l_xf) var(--sheer-text);
 	border-block-start-style: solid;
 	color: inherit;
 	overflow: visible;
@@ -399,8 +388,8 @@ iframe:where([style~="--aspect-ratio--:"]) {
 input:where(:not([type]), [type="text"], [type="search"], [type="tel"], [type="url"], [type="email"], [type="password"], [type="date"], [type="month"], [type="week"], [type="time"], [type|="datetime"], [type="number"], [type="submit"], [type="reset"], [type="button"]), button, select, textarea, ::file-selector-button {
 	appearance: none;
 	border-style: solid;
-	border-width: var(--line_xf);
-	border-radius: calc(var(--line_xf) * 2);
+	border-width: var(--l_xf);
+	border-radius: calc(var(--l_xf) * 2);
 	padding-block: 0;
 	padding-inline: calc(0.5lh - 0.5em);
 }

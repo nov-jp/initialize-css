@@ -1,6 +1,6 @@
 # initialize-css
 
-Initialize CSS は邪魔になりそうなスタイルを無くすための リセットCSS でも、ブラウザ間の差異を無くすだけの ノーマライズCSS でもありません。セマンティックな HTML が読みやすくなるよう初期化します。
+HTML の各要素のスタイルを初期化するための CSSファイル
 
 [https://nov-jp.github.io/initialize-css/](https://nov-jp.github.io/initialize-css/)
 
@@ -70,4 +70,4 @@ HTMLの`head`要素内で読み込みます。
 
 ## ライセンス
 
-MIT License
+The MIT License. Copyright 2026 Nobuo Nakayama (https://github.com/nov-jp/).

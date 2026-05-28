@@ -1,0 +1,25 @@
+{
+	"name": "initialize-css",
+	"version": "1.0.0",
+	"description": "HTML の各要素のスタイルを初期化するための CSSファイル です。",
+	"main": "dist/initialize.min.css",
+	"style": "dist/initialize.min.css",
+	"files": [
+		"dist",
+		"README.md"
+	],
+	"scripts": {
+		"build": "node build.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nov-jp/initialize-css.git"
+	},
+	"keywords": [],
+	"author": "Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/)",
+	"license": "MIT",
+	"type": "commonjs",
+	"dependencies": {
+		"lightningcss": "^1.32.0"
+	}
+}
