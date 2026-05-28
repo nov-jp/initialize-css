@@ -1,7 +1,7 @@
 /*! The MIT License. Copyright 2026 Nobuo Nakayama @ Shimotsuki (https://github.com/nov-jp/). */
 
 /**
- * [class*="__box__"]:is([style~="--inline-size--:"], [style~="--margin-block--:"], [style~="--margin-inline--:"], [style~="--padding-block--:"], [style~="--padding-inline--:"], [style~="--is-inset:"])?
+ * [class*="__box__"]:is([style*="--inline-size--:"], [style*="--margin-block--:"], [style*="--margin-inline--:"], [style*="--padding-block--:"], [style*="--padding-inline--:"], [style*="--is-inset:"])?
  */
 [class*="__box__"] {
 	--inline-size--: 100cqi;
@@ -12,7 +12,7 @@
 	margin-inline: calc(50% - 50cqi + clamp(var(--margin-inline--), -1e6px * var(--is-inset), max(var(--margin-inline--), var(--inline-size--) / -2 + 50cqi)));
 	padding-inline: clamp(var(--padding-inline--), 1e6px * var(--is-inset), max(var(--padding-inline--), var(--inline-size--) / -2 + 50cqi));
 
-	&:not([style~="--inline-size--:"]) {
+	&:not([style*="--inline-size--:"]) {
 		&:has(+ &) {
 			margin-block-end: 0;
 		}
@@ -29,7 +29,7 @@
 }
 
 /**
- * hr[class*="__hr__"]:is([style~="--border-style--:"], [style~="--border-width--:"], [style~="--border-color--:"], [style~="--inline-size--:"])?
+ * hr[class*="__hr__"]:is([style*="--border-style--:"], [style*="--border-width--:"], [style*="--border-color--:"], [style*="--inline-size--:"])?
  */
 [class*="__hr__"] {
 	--border-style--: solid;
@@ -42,7 +42,7 @@
 }
 
 /**
- * pre[class*="__pre__"]:is([style~="--background--:"], [style~="--border-width--:"], [style~="--border-color--:"], [style~="--border-radius--:"], [style~="--color--:"])?
+ * pre[class*="__pre__"]:is([style*="--background--:"], [style*="--border-width--:"], [style*="--border-color--:"], [style*="--border-radius--:"], [style*="--color--:"])?
  * pre.__pre__code
  * > code
  * pre.__pre__samp
@@ -99,7 +99,7 @@
 }
 
 /**
- * ul[class*="__ul__"][style~="--list-style-type--:"]?
+ * ul[class*="__ul__"][style*="--list-style-type--:"]?
  * > li
  */
 .__ul__compact {
@@ -115,7 +115,7 @@
 }
 
 /**
- * dl[class*="__dl__"]:is([style~="--border-width--:"], [style~="--border-color--:"])?
+ * dl[class*="__dl__"]:is([style*="--border-width--:"], [style*="--border-color--:"])?
  * > div > :is(dt, dd)
  */
 .__dl__noindent {
@@ -191,8 +191,8 @@
 }
 
 /**
- * div[class*="__div-table__"]:is([style~="--border-width--:"], [style~="--border-color--:"], [style~="--border-radius--:"])?
- * > table:is([style~="--inline-size--:"], [style~="--table-layout--:"])?
+ * div[class*="__div-table__"]:is([style*="--border-width--:"], [style*="--border-color--:"], [style*="--border-radius--:"])?
+ * > table:is([style*="--inline-size--:"], [style*="--table-layout--:"])?
  *   ( > caption )?
  *   > :is(tbody, thead, tfoot) > tr > :is(td, th)
  */
@@ -241,8 +241,8 @@
 }
 
 /**
- * figure[class*="__figure__"]:is([style~="--inline-size--:"], [style~="--margin-inline--:"])?
- * ( > figcaption[style~="--text-align--:"]? )?
+ * figure[class*="__figure__"]:is([style*="--inline-size--:"], [style*="--margin-inline--:"])?
+ * ( > figcaption[style*="--text-align--:"]? )?
  */
 [class*="__figure__"] {
 	--inline-size--: auto;
@@ -271,7 +271,7 @@
 }
 
 /**
- * details[class*="__details__"]:is([style~="--border-width--:"], [style~="--border-color--:"], [style~="--border-radius--:"])?
+ * details[class*="__details__"]:is([style*="--border-width--:"], [style*="--border-color--:"], [style*="--border-radius--:"])?
  * > summary
  */
 [class*="__details__"] {
@@ -320,7 +320,7 @@
 }
 
 /**
- * div[class*="__div-tabs__"]:is([style~="--border-width--:"], [style~="--border-color--:"])?
+ * div[class*="__div-tabs__"]:is([style*="--border-width--:"], [style*="--border-color--:"])?
  * > ul[role="tablist"]
  *   > li[role="presentation"] > label[id="${ TAB }"][role="tab"] > input[type="radio"][name][aria-controls="${ TAB_PANEL }"]( [checked] )?
  * > ul
@@ -781,7 +781,7 @@
 }
 
 /**
- * [class*="__button__"]:is(input, button, a):is([style~="--background--:"], [style~="--border-width--:"], [style~="--border-color--:"], [style~="--border-radius--:"], [style~="--color--:"], [style~="--inline-size--:"], [style~="--padding-block--:"], [style~="--padding-inline--:"])?
+ * [class*="__button__"]:is(input, button, a):is([style*="--background--:"], [style*="--border-width--:"], [style*="--border-color--:"], [style*="--border-radius--:"], [style*="--color--:"], [style*="--inline-size--:"], [style*="--padding-block--:"], [style*="--padding-inline--:"])?
  */
 [class*="__button__"] {
 	--background--: none;
@@ -810,7 +810,7 @@
 	text-wrap: pretty;
 	vertical-align: middle;
 
-	&[style~="--background--:"] {
+	&[style*="--background--:"] {
 		border-color: transparent;
 	}
 	&:not(:active, :disabled) {

@@ -71,8 +71,8 @@
 	--gray: #999;
 	--white: #fff;
 	--black: #111;
-	--dark-light: light-dark(var(--black), var(--white));
 	--light-dark: light-dark(var(--white), var(--black));
+	--dark-light: light-dark(var(--black), var(--white));
 
 	--sheer-red: color-mix(in srgb, transparent, var(--red) var(--a_m));
 	--sheer-yellow: color-mix(in srgb, transparent, var(--yellow) var(--a_m));
