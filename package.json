@@ -1,6 +1,6 @@
 {
 	"name": "initialize-css",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "HTML の各要素のスタイルを初期化するための CSSファイル です。",
 	"main": "dist/initialize.min.css",
 	"style": "dist/initialize.min.css",
