@@ -71,8 +71,8 @@
 	--gray: #999;
 	--white: #fff;
 	--black: #111;
-	--dark-light: light-dark(var(--black), var(--white));
 	--light-dark: light-dark(var(--white), var(--black));
+	--dark-light: light-dark(var(--black), var(--white));
 
 	--sheer-red: color-mix(in srgb, transparent, var(--red) var(--a_m));
 	--sheer-yellow: color-mix(in srgb, transparent, var(--yellow) var(--a_m));
@@ -184,7 +184,7 @@ optgroup, :disabled, :disabled * {
 /**
  * display
  */
-:where(option[selected][disabled], dialog:not([open], [popover]), [popover]:not(:popover-open), [hidden]:not([hidden="until-found"])):not(#_) {
+:where(option[selected][disabled], [hidden]:not([hidden="until-found"])):not(#_) {
 	display: none;
 }
 
@@ -287,7 +287,7 @@ tbody, thead, tfoot, tr {
 *, ::before, ::after, ::file-selector-button, ::details-content {
 	box-sizing: border-box;
 	letter-spacing: var(--letter-spacing, normal);
-	line-height: var(--line-height, calc(var(--leading, var(--leading-size, var(--sp_m)) * var(--leading-scale, 1) * var(--leading-ratio, 1)) + 1em));
+	line-height: var(--line-height--, calc(var(--leading, var(--leading-size, var(--sp_m)) * var(--leading-scale, 1) * var(--leading-ratio, 1)) + 1em));
 	min-inline-size: 0;
 }
 :focus-visible {

@@ -5,9 +5,9 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		<meta name="description" content="Initialize CSS は邪魔になりそうなスタイルを無くすためのリセットCSSでも、ブラウザ間の差異を無くすだけのノーマライズCSSでもありません。セマンティックなHTMLが読みやすくなるよう初期化します。" />
 		<title>HTML の各要素のスタイルを初期化するための CSSファイル  @ Initialize CSS</title>
-		<link rel="stylesheet" href="dist/initialize.css" id="initialize-css" />
-		<link rel="stylesheet" href="dist/initialize-plus.css" id="initialize-plus-css" />
-		<link rel="stylesheet" href="dist/initialize-vars.css" id="initialize-vars-css" />
+		<link rel="stylesheet" href="src/initialize.css" id="initialize-css" />
+		<link rel="stylesheet" href="src/initialize-plus.css" id="initialize-plus-css" />
+		<link rel="stylesheet" href="src/initialize-vars.css" id="initialize-vars-css" />
 	</head>
 	<body class="__box__" style="--inline-size--: min(1440px, 45rem); --margin-block--: var(--sp_l); --margin-inline--: var(--sp_l);">
 		<header>
@@ -113,7 +113,7 @@
 						-->&#x9;--<abbr title="Space">sp</abbr>_<abbr title="Extra Large">xl</abbr>: max(1px, 1rem * 4);&#xA;<!--
 						-->&#x9;--<abbr title="Space">sp</abbr>_<abbr title="Extra Extra Large">xxl</abbr>: max(1px, 1rem * 8);&#xA;<!--
 						-->&#xA;<!--
-						-->&#x9;/* ページ全体に適用する文字間隔 */&#xA;<!--
+						-->&#x9;/* デフォルトとする文字間隔 */&#xA;<!--
 						-->&#x9;--letter-spacing: normal;&#xA;<!--
 						-->&#xA;<!--
 						-->&#x9;/* :focus-visibleで適用するアウトライン */&#xA;<!--
@@ -167,7 +167,7 @@
 						-->}&#xA;<!--
 						--></code></pre>
 					</figure>
-					<p>必要に応じてカスタムプロパティを上書き・追加する initialize-vars.css を作成して、</p>
+					<p>必要に応じてカスタムプロパティを上書き・追加する initialize-vars.css を作成して、読み込んでください。</p>
 					<figure class="__figure__">
 						<figcaption>initialize-vars.css</figcaption>
 						<pre class="__pre__code"><code><!--
@@ -181,36 +181,15 @@
 						-->&#xA;<!--
 						-->&#x9;/* 文字間隔を上書き */&#xA;<!--
 						-->&#x9;--letter-spacing: calc(1em / 32);&#xA;<!--
-						-->&#xA;<!--
-						-->&#x9;/* 基本色をベースとした薄い色を追加 */&#xA;<!--
-						-->&#x9;--pale-red: color-mix(in srgb, var(--light-dark), var(--red) var(--a_m));&#xA;<!--
-						-->&#x9;--pale-yellow: color-mix(in srgb, var(--light-dark), var(--yellow) var(--a_m));&#xA;<!--
-						-->&#x9;--pale-green: color-mix(in srgb, var(--light-dark), var(--green) var(--a_m));&#xA;<!--
-						-->&#x9;--pale-blue: color-mix(in srgb, var(--light-dark), var(--blue) var(--a_m));&#xA;<!--
-						-->&#x9;--pale-gray: color-mix(in srgb, var(--light-dark), var(--gray) var(--a_m));&#xA;<!--
-						-->&#x9;--pale-text: color-mix(in srgb, var(--light-dark), currentcolor var(--a_m));&#xA;<!--
-						-->&#x9;--paler-red: color-mix(in srgb, var(--light-dark), var(--red) var(--a_l));&#xA;<!--
-						-->&#x9;--paler-yellow: color-mix(in srgb, var(--light-dark), var(--yellow) var(--a_l));&#xA;<!--
-						-->&#x9;--paler-green: color-mix(in srgb, var(--light-dark), var(--green) var(--a_l));&#xA;<!--
-						-->&#x9;--paler-blue: color-mix(in srgb, var(--light-dark), var(--blue) var(--a_l));&#xA;<!--
-						-->&#x9;--paler-gray: color-mix(in srgb, var(--light-dark), var(--gray) var(--a_l));&#xA;<!--
-						-->&#x9;--paler-text: color-mix(in srgb, var(--light-dark), currentcolor var(--a_l));&#xA;<!--
-						-->&#x9;--palest-red: color-mix(in srgb, var(--light-dark), var(--red) var(--a_xl));&#xA;<!--
-						-->&#x9;--palest-yellow: color-mix(in srgb, var(--light-dark), var(--yellow) var(--a_xl));&#xA;<!--
-						-->&#x9;--palest-green: color-mix(in srgb, var(--light-dark), var(--green) var(--a_xl));&#xA;<!--
-						-->&#x9;--palest-blue: color-mix(in srgb, var(--light-dark), var(--blue) var(--a_xl));&#xA;<!--
-						-->&#x9;--palest-gray: color-mix(in srgb, var(--light-dark), var(--gray) var(--a_xl));&#xA;<!--
-						-->&#x9;--palest-text: color-mix(in srgb, var(--light-dark), currentcolor var(--a_xl));&#xA;<!--
 						-->}&#xA;<!--
 						--></code></pre>
 					</figure>
-					<p>読み込んでください。</p>
 					<figure class="__figure__">
 						<figcaption>HTML</figcaption>
 						<pre class="__pre__code"><code><!--
-						-->&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/dist/initialize.min.css&quot; /&gt;&#xA;<!--
-						-->&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@main/dist/initialize-plus.min.css&quot; /&gt;&#xA;<!--
-						-->&lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/initialize-vars.css&quot; /&gt;&#xA;<!--
+						-->&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@1.0/dist/initialize.min.css&quot; /&gt;&#xA;<!--
+						-->&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/nov-jp/initialize-css@1.0/dist/initialize-plus.min.css&quot; /&gt;&#xA;<!--
+						-->&lt;link rel=&quot;stylesheet&quot; href=&quot;path/initialize-vars.css&quot; /&gt;&#xA;<!--
 						--></code></pre>
 					</figure>
 					<p>
@@ -252,7 +231,7 @@
 						-->/* 行間 */&#xA;<!--
 						-->*, ::before, ::after, ::file-selector-button, ::details-content {&#xA;<!--
 						-->&#x9;&hellip;&#xA;<!--
-						-->&#x9;line-height: var(--line-height, calc(var(--leading, var(--leading-size, var(--sp_m)) * var(--leading-scale, 1) * var(--leading-ratio, 1)) + 1em));&#xA;<!--
+						-->&#x9;line-height: var(--line-height--, calc(var(--leading, var(--leading-size, var(--sp_m)) * var(--leading-scale, 1) * var(--leading-ratio, 1)) + 1em));&#xA;<!--
 						-->&#x9;&hellip;&#xA;<!--
 						-->}&#xA;<!--
 						--></code></pre>
@@ -288,7 +267,7 @@
 						-->}&#xA;<!--
 						-->/* 行の高さを設定 */&#xA;<!--
 						-->pre.example {&#xA;<!--
-						-->&#x9;--line-height: 1.5;&#xA;<!--
+						-->&#x9;--line-height--: 1.5;&#xA;<!--
 						-->}&#xA;<!--
 						-->/* 行間を固定サイズで設定 */&#xA;<!--
 						-->button.example {&#xA;<!--
@@ -892,11 +871,11 @@
 						--></code></pre>
 					</figure>
 					<figure>
-						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEXAwMBmS75kAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="480" height="270" />
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNsbGxsYKAAMFGiedSAYWMAAKrrAhXdY/gIAAAAAElFTkSuQmCC" width="480" height="270" />
 						<figcaption>画像のキャプション</figcaption>
 					</figure>
 					<figure class="__figure__">
-						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEXAwMBmS75kAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="480" height="270" />
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNsbGxsYKAAMFGiedSAYWMAAKrrAhXdY/gIAAAAAElFTkSuQmCC" width="480" height="270" />
 						<figcaption>画像のキャプション</figcaption>
 					</figure>
 					<figure class="__figure__">
@@ -1123,34 +1102,34 @@
 						-->&#x9;&#x9;&lt;/li&gt;&#xA;<!--
 						-->&#x9;&lt;/ul&gt;&#xA;<!--
 						-->&lt;/div&gt;&#xA;<!--
-						-->&lt;div class=&quot;__div-carousel__transition-move-rl&quot;&gt;&#xA;<!--
+						-->&lt;div class=&quot;__div-carousel__anim-move-rl&quot;&gt;&#xA;<!--
 						-->&#x9;&hellip;&#xA;<!--
 						-->&lt;/div&gt;&#xA;<!--
-						-->&lt;div class=&quot;__div-carousel__transition-move-lr&quot;&gt;&#xA;<!--
+						-->&lt;div class=&quot;__div-carousel__anim-move-lr&quot;&gt;&#xA;<!--
 						-->&#x9;&hellip;&#xA;<!--
 						-->&lt;/div&gt;&#xA;<!--
-						-->&lt;div class=&quot;__div-carousel__transition-move-bt&quot;&gt;&#xA;<!--
+						-->&lt;div class=&quot;__div-carousel__anim-move-bt&quot;&gt;&#xA;<!--
 						-->&#x9;&hellip;&#xA;<!--
 						-->&lt;/div&gt;&#xA;<!--
-						-->&lt;div class=&quot;__div-carousel__transition-move-tb&quot;&gt;&#xA;<!--
+						-->&lt;div class=&quot;__div-carousel__anim-move-tb&quot;&gt;&#xA;<!--
 						-->&#x9;&hellip;&#xA;<!--
 						-->&lt;/div&gt;&#xA;<!--
-						-->&lt;div class=&quot;__div-carousel__transition-rotate-x&quot;&gt;&#xA;<!--
+						-->&lt;div class=&quot;__div-carousel__anim-rotate-x&quot;&gt;&#xA;<!--
 						-->&#x9;&hellip;&#xA;<!--
 						-->&lt;/div&gt;&#xA;<!--
-						-->&lt;div class=&quot;__div-carousel__transition-rotate-y&quot;&gt;&#xA;<!--
+						-->&lt;div class=&quot;__div-carousel__anim-rotate-y&quot;&gt;&#xA;<!--
 						-->&#x9;&hellip;&#xA;<!--
 						-->&lt;/div&gt;&#xA;<!--
-						-->&lt;div class=&quot;__div-carousel__transition-skew-x&quot;&gt;&#xA;<!--
+						-->&lt;div class=&quot;__div-carousel__anim-skew-x&quot;&gt;&#xA;<!--
 						-->&#x9;&hellip;&#xA;<!--
 						-->&lt;/div&gt;&#xA;<!--
-						-->&lt;div class=&quot;__div-carousel__transition-skew-y&quot;&gt;&#xA;<!--
+						-->&lt;div class=&quot;__div-carousel__anim-skew-y&quot;&gt;&#xA;<!--
 						-->&#x9;&hellip;&#xA;<!--
 						-->&lt;/div&gt;&#xA;<!--
-						-->&lt;div class=&quot;__div-carousel__transition-zoom-out&quot;&gt;&#xA;<!--
+						-->&lt;div class=&quot;__div-carousel__anim-zoom-out&quot;&gt;&#xA;<!--
 						-->&#x9;&hellip;&#xA;<!--
 						-->&lt;/div&gt;&#xA;<!--
-						-->&lt;div class=&quot;__div-carousel__transition-zoom-in&quot;&gt;&#xA;<!--
+						-->&lt;div class=&quot;__div-carousel__anim-zoom-in&quot;&gt;&#xA;<!--
 						-->&#x9;&hellip;&#xA;<!--
 						-->&lt;/div&gt;&#xA;<!--
 						-->&lt;div class=&quot;__div-carousel__stacked-ctrls&quot; style=&quot;--time: 8s; --easing: ease-in-out;&quot;&gt;&#xA;<!--
@@ -1164,108 +1143,108 @@
 							<li role="presentation"><label id="carousel-tab-2" role="tab" aria-controls="carousel-tabpanel-2"><input type="radio" name="carousel-tab" /><span>2/2</span></label></li>
 						</ul>
 						<ul>
-							<li id="carousel-tabpanel-1" role="tabpanel" aria-labelledby="carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEXAwMBmS75kAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
-							<li id="carousel-tabpanel-2" role="tabpanel" aria-labelledby="carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEVAQEBRRb6PAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
+							<li id="carousel-tabpanel-1" role="tabpanel" aria-labelledby="carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNMSEioZ6AAMFGiedSAYWMAAMciAbFDLpb7AAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
+							<li id="carousel-tabpanel-2" role="tabpanel" aria-labelledby="carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNcsGBBPQMFgIkSzaMGDBsDAHyAAnF1CfrOAAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
 						</ul>
 					</div>
-					<div class="__div-carousel__transition-move-rl">
+					<div class="__div-carousel__anim-move-rl">
 						<ul role="tablist">
 							<li role="presentation"><label id="transition-move-rl-carousel-tab-1" role="tab" aria-controls="transition-move-rl-carousel-tabpanel-1"><input type="radio" name="transition-move-rl-carousel-tab" checked /><span>1/2</span></label></li>
 							<li role="presentation"><label id="transition-move-rl-carousel-tab-2" role="tab" aria-controls="transition-move-rl-carousel-tabpanel-2"><input type="radio" name="transition-move-rl-carousel-tab" /><span>2/2</span></label></li>
 						</ul>
 						<ul>
-							<li id="transition-move-rl-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-move-rl-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEXAwMBmS75kAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
-							<li id="transition-move-rl-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-move-rl-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEVAQEBRRb6PAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
+							<li id="transition-move-rl-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-move-rl-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNMSEioZ6AAMFGiedSAYWMAAMciAbFDLpb7AAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
+							<li id="transition-move-rl-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-move-rl-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNcsGBBPQMFgIkSzaMGDBsDAHyAAnF1CfrOAAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
 						</ul>
 					</div>
-					<div class="__div-carousel__transition-move-lr">
+					<div class="__div-carousel__anim-move-lr">
 						<ul role="tablist">
 							<li role="presentation"><label id="transition-move-lr-carousel-tab-1" role="tab" aria-controls="transition-move-lr-carousel-tabpanel-1"><input type="radio" name="transition-move-lr-carousel-tab" checked /><span>1/2</span></label></li>
 							<li role="presentation"><label id="transition-move-lr-carousel-tab-2" role="tab" aria-controls="transition-move-lr-carousel-tabpanel-2"><input type="radio" name="transition-move-lr-carousel-tab" /><span>2/2</span></label></li>
 						</ul>
 						<ul>
-							<li id="transition-move-lr-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-move-lr-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEXAwMBmS75kAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
-							<li id="transition-move-lr-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-move-lr-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEVAQEBRRb6PAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
+							<li id="transition-move-lr-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-move-lr-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNMSEioZ6AAMFGiedSAYWMAAMciAbFDLpb7AAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
+							<li id="transition-move-lr-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-move-lr-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNcsGBBPQMFgIkSzaMGDBsDAHyAAnF1CfrOAAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
 						</ul>
 					</div>
-					<div class="__div-carousel__transition-move-bt">
+					<div class="__div-carousel__anim-move-bt">
 						<ul role="tablist">
 							<li role="presentation"><label id="transition-move-bt-carousel-tab-1" role="tab" aria-controls="transition-move-bt-carousel-tabpanel-1"><input type="radio" name="transition-move-bt-carousel-tab" checked /><span>1/2</span></label></li>
 							<li role="presentation"><label id="transition-move-bt-carousel-tab-2" role="tab" aria-controls="transition-move-bt-carousel-tabpanel-2"><input type="radio" name="transition-move-bt-carousel-tab" /><span>2/2</span></label></li>
 						</ul>
 						<ul>
-							<li id="transition-move-bt-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-move-bt-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEXAwMBmS75kAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
-							<li id="transition-move-bt-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-move-bt-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEVAQEBRRb6PAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
+							<li id="transition-move-bt-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-move-bt-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNMSEioZ6AAMFGiedSAYWMAAMciAbFDLpb7AAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
+							<li id="transition-move-bt-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-move-bt-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNcsGBBPQMFgIkSzaMGDBsDAHyAAnF1CfrOAAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
 						</ul>
 					</div>
-					<div class="__div-carousel__transition-move-tb">
+					<div class="__div-carousel__anim-move-tb">
 						<ul role="tablist">
 							<li role="presentation"><label id="transition-move-tb-carousel-tab-1" role="tab" aria-controls="transition-move-tb-carousel-tabpanel-1"><input type="radio" name="transition-move-tb-carousel-tab" checked /><span>1/2</span></label></li>
 							<li role="presentation"><label id="transition-move-tb-carousel-tab-2" role="tab" aria-controls="transition-move-tb-carousel-tabpanel-2"><input type="radio" name="transition-move-tb-carousel-tab" /><span>2/2</span></label></li>
 						</ul>
 						<ul>
-							<li id="transition-move-tb-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-move-tb-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEXAwMBmS75kAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
-							<li id="transition-move-tb-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-move-tb-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEVAQEBRRb6PAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
+							<li id="transition-move-tb-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-move-tb-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNMSEioZ6AAMFGiedSAYWMAAMciAbFDLpb7AAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
+							<li id="transition-move-tb-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-move-tb-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNcsGBBPQMFgIkSzaMGDBsDAHyAAnF1CfrOAAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
 						</ul>
 					</div>
-					<div class="__div-carousel__transition-rotate-x">
+					<div class="__div-carousel__anim-rotate-x">
 						<ul role="tablist">
 							<li role="presentation"><label id="transition-rotate-x-carousel-tab-1" role="tab" aria-controls="transition-rotate-x-carousel-tabpanel-1"><input type="radio" name="transition-rotate-x-carousel-tab" checked /><span>1/2</span></label></li>
 							<li role="presentation"><label id="transition-rotate-x-carousel-tab-2" role="tab" aria-controls="transition-rotate-x-carousel-tabpanel-2"><input type="radio" name="transition-rotate-x-carousel-tab" /><span>2/2</span></label></li>
 						</ul>
 						<ul>
-							<li id="transition-rotate-x-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-rotate-x-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEXAwMBmS75kAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
-							<li id="transition-rotate-x-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-rotate-x-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEVAQEBRRb6PAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
+							<li id="transition-rotate-x-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-rotate-x-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNMSEioZ6AAMFGiedSAYWMAAMciAbFDLpb7AAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
+							<li id="transition-rotate-x-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-rotate-x-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNcsGBBPQMFgIkSzaMGDBsDAHyAAnF1CfrOAAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
 						</ul>
 					</div>
-					<div class="__div-carousel__transition-rotate-y">
+					<div class="__div-carousel__anim-rotate-y">
 						<ul role="tablist">
 							<li role="presentation"><label id="transition-rotate-y-carousel-tab-1" role="tab" aria-controls="transition-rotate-y-carousel-tabpanel-1"><input type="radio" name="transition-rotate-y-carousel-tab" checked /><span>1/2</span></label></li>
 							<li role="presentation"><label id="transition-rotate-y-carousel-tab-2" role="tab" aria-controls="transition-rotate-y-carousel-tabpanel-2"><input type="radio" name="transition-rotate-y-carousel-tab" /><span>2/2</span></label></li>
 						</ul>
 						<ul>
-							<li id="transition-rotate-y-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-rotate-y-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEXAwMBmS75kAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
-							<li id="transition-rotate-y-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-rotate-y-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEVAQEBRRb6PAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
+							<li id="transition-rotate-y-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-rotate-y-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNMSEioZ6AAMFGiedSAYWMAAMciAbFDLpb7AAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
+							<li id="transition-rotate-y-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-rotate-y-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNcsGBBPQMFgIkSzaMGDBsDAHyAAnF1CfrOAAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
 						</ul>
 					</div>
-					<div class="__div-carousel__transition-skew-x">
+					<div class="__div-carousel__anim-skew-x">
 						<ul role="tablist">
 							<li role="presentation"><label id="transition-skew-x-carousel-tab-1" role="tab" aria-controls="transition-skew-x-carousel-tabpanel-1"><input type="radio" name="transition-skew-x-carousel-tab" checked /><span>1/2</span></label></li>
 							<li role="presentation"><label id="transition-skew-x-carousel-tab-2" role="tab" aria-controls="transition-skew-x-carousel-tabpanel-2"><input type="radio" name="transition-skew-x-carousel-tab" /><span>2/2</span></label></li>
 						</ul>
 						<ul>
-							<li id="transition-skew-x-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-skew-x-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEXAwMBmS75kAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
-							<li id="transition-skew-x-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-skew-x-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEVAQEBRRb6PAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
+							<li id="transition-skew-x-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-skew-x-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNMSEioZ6AAMFGiedSAYWMAAMciAbFDLpb7AAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
+							<li id="transition-skew-x-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-skew-x-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNcsGBBPQMFgIkSzaMGDBsDAHyAAnF1CfrOAAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
 						</ul>
 					</div>
-					<div class="__div-carousel__transition-skew-y">
+					<div class="__div-carousel__anim-skew-y">
 						<ul role="tablist">
 							<li role="presentation"><label id="transition-skew-y-carousel-tab-1" role="tab" aria-controls="transition-skew-y-carousel-tabpanel-1"><input type="radio" name="transition-skew-y-carousel-tab" checked /><span>1/2</span></label></li>
 							<li role="presentation"><label id="transition-skew-y-carousel-tab-2" role="tab" aria-controls="transition-skew-y-carousel-tabpanel-2"><input type="radio" name="transition-skew-y-carousel-tab" /><span>2/2</span></label></li>
 						</ul>
 						<ul>
-							<li id="transition-skew-y-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-skew-y-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEXAwMBmS75kAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
-							<li id="transition-skew-y-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-skew-y-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEVAQEBRRb6PAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
+							<li id="transition-skew-y-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-skew-y-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNMSEioZ6AAMFGiedSAYWMAAMciAbFDLpb7AAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
+							<li id="transition-skew-y-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-skew-y-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNcsGBBPQMFgIkSzaMGDBsDAHyAAnF1CfrOAAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
 						</ul>
 					</div>
-					<div class="__div-carousel__transition-zoom-out">
+					<div class="__div-carousel__anim-zoom-out">
 						<ul role="tablist">
 							<li role="presentation"><label id="transition-zoom-out-carousel-tab-1" role="tab" aria-controls="transition-zoom-out-carousel-tabpanel-1"><input type="radio" name="transition-zoom-out-carousel-tab" checked /><span>1/2</span></label></li>
 							<li role="presentation"><label id="transition-zoom-out-carousel-tab-2" role="tab" aria-controls="transition-zoom-out-carousel-tabpanel-2"><input type="radio" name="transition-zoom-out-carousel-tab" /><span>2/2</span></label></li>
 						</ul>
 						<ul>
-							<li id="transition-zoom-out-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-zoom-out-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEXAwMBmS75kAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
-							<li id="transition-zoom-out-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-zoom-out-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEVAQEBRRb6PAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
+							<li id="transition-zoom-out-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-zoom-out-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNMSEioZ6AAMFGiedSAYWMAAMciAbFDLpb7AAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
+							<li id="transition-zoom-out-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-zoom-out-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNcsGBBPQMFgIkSzaMGDBsDAHyAAnF1CfrOAAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
 						</ul>
 					</div>
-					<div class="__div-carousel__transition-zoom-in">
+					<div class="__div-carousel__anim-zoom-in">
 						<ul role="tablist">
 							<li role="presentation"><label id="transition-zoom-in-carousel-tab-1" role="tab" aria-controls="transition-zoom-in-carousel-tabpanel-1"><input type="radio" name="transition-zoom-in-carousel-tab" checked /><span>1/2</span></label></li>
 							<li role="presentation"><label id="transition-zoom-in-carousel-tab-2" role="tab" aria-controls="transition-zoom-in-carousel-tabpanel-2"><input type="radio" name="transition-zoom-in-carousel-tab" /><span>2/2</span></label></li>
 						</ul>
 						<ul>
-							<li id="transition-zoom-in-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-zoom-in-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEXAwMBmS75kAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
-							<li id="transition-zoom-in-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-zoom-in-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEVAQEBRRb6PAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
+							<li id="transition-zoom-in-carousel-tabpanel-1" role="tabpanel" aria-labelledby="transition-zoom-in-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNMSEioZ6AAMFGiedSAYWMAAMciAbFDLpb7AAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
+							<li id="transition-zoom-in-carousel-tabpanel-2" role="tabpanel" aria-labelledby="transition-zoom-in-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNcsGBBPQMFgIkSzaMGDBsDAHyAAnF1CfrOAAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
 						</ul>
 					</div>
 					<div class="__div-carousel__stacked-ctrls" style="--time: 8s; --easing: ease-in-out;">
@@ -1274,8 +1253,8 @@
 							<li role="presentation"><label id="stacked-ctrls-carousel-tab-2" role="tab" aria-controls="stacked-ctrls-carousel-tabpanel-2"><input type="radio" name="stacked-ctrls-carousel-tab" /><span>2/2</span></label></li>
 						</ul>
 						<ul>
-							<li id="stacked-ctrls-carousel-tabpanel-1" role="tabpanel" aria-labelledby="stacked-ctrls-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEXAwMBmS75kAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
-							<li id="stacked-ctrls-carousel-tabpanel-2" role="tabpanel" aria-labelledby="stacked-ctrls-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEVAQEBRRb6PAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></a></figure></li>
+							<li id="stacked-ctrls-carousel-tabpanel-1" role="tabpanel" aria-labelledby="stacked-ctrls-carousel-tab-1"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNMSEioZ6AAMFGiedSAYWMAAMciAbFDLpb7AAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
+							<li id="stacked-ctrls-carousel-tabpanel-2" role="tabpanel" aria-labelledby="stacked-ctrls-carousel-tab-2"><figure><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNcsGBBPQMFgIkSzaMGDBsDAHyAAnF1CfrOAAAAAElFTkSuQmCC" width="960" height="540" /></a></figure></li>
 						</ul>
 					</div>
 				</section>
@@ -1287,7 +1266,12 @@
 							<figcaption>HTML</figcaption>
 							<pre class="__pre__code"><code><!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-1&quot; value=&quot;text&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-1-1&quot; value=&quot;&quot; size=&quot;10&quot; placeholder=&quot;input[size][placeholder]&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-1-2&quot; value=&quot;input[minlength][maxlength]&quot; minlength=&quot;4&quot; maxlength=&quot;8&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-1-3&quot; value=&quot;input[pattern]&quot; pattern=&quot;[a-z\[\]]+&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-1-4&quot; value=&quot;input[required]&quot; required /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-1-5&quot; value=&quot;input[readonly]&quot; readonly /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-1-6&quot; value=&quot;input[disabled]&quot; disabled /&gt;&#xA;<!--
 							-->&#x9;&lt;input type=&quot;search&quot; name=&quot;example-search-1&quot; value=&quot;search&quot; /&gt;&#xA;<!--
 							-->&#x9;&lt;input type=&quot;tel&quot; name=&quot;example-tel-1&quot; value=&quot;1234567890&quot; /&gt;&#xA;<!--
 							-->&#x9;&lt;input type=&quot;url&quot; name=&quot;example-url-1&quot; value=&quot;https://example.com/&quot; /&gt;&#xA;<!--
@@ -1299,57 +1283,51 @@
 							-->&#x9;&lt;input type=&quot;time&quot; name=&quot;example-time-1&quot; value=&quot;00:00&quot; min=&quot;00:00&quot; max=&quot;23:59&quot; step=&quot;60&quot; /&gt;&#xA;<!--
 							-->&#x9;&lt;input type=&quot;datetime-local&quot; name=&quot;example-datetime-1&quot; value=&quot;2001-01-01T00:00&quot; min=&quot;2001-01-01T00:00&quot; max=&quot;2100-12-31T23:59&quot; step=&quot;60&quot; /&gt;&#xA;<!--
 							-->&#x9;&lt;input type=&quot;number&quot; name=&quot;example-number-1&quot; value=&quot;0&quot; min=&quot;0&quot; max=&quot;10&quot; step=&quot;1&quot; /&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-placeholder-1&quot; value=&quot;&quot; placeholder=&quot;input[placeholder]&quot; /&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-size-1&quot; value=&quot;input[size]&quot; size=&quot;10&quot; /&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-length-1&quot; value=&quot;input[minlength][maxlength]&quot; minlength=&quot;4&quot; maxlength=&quot;8&quot; /&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-pattern-1&quot; value=&quot;input[pattern]&quot; pattern=&quot;[a-z\[\]]+&quot; /&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-required-1&quot; value=&quot;input[required]&quot; required /&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-readonly-1&quot; value=&quot;input[readonly]&quot; readonly /&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-disabled-1&quot; value=&quot;input[disabled]&quot; disabled /&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;textarea name=&quot;example-textarea-1&quot; placeholder=&quot;textarea[placeholder]&quot;&gt;&lt;/textarea&gt;&#xA;<!--
-							-->&#x9;&lt;textarea name=&quot;example-textarea-size-1&quot; cols=&quot;10&quot; rows=&quot;4&quot;&gt;textarea[cols][rows]&lt;/textarea&gt;&#xA;<!--
-							-->&#x9;&lt;textarea name=&quot;example-textarea-length-1&quot; minlength=&quot;4&quot; maxlength=&quot;8&quot;&gt;textarea[minlength][maxlength]&lt;/textarea&gt;&#xA;<!--
-							-->&#x9;&lt;textarea name=&quot;example-textarea-required-1&quot; required&gt;textarea[required]&lt;/textarea&gt;&#xA;<!--
-							-->&#x9;&lt;textarea name=&quot;example-textarea-readonly-1&quot; readonly&gt;textarea[readonly]&lt;/textarea&gt;&#xA;<!--
-							-->&#x9;&lt;textarea name=&quot;example-textarea-disabled-1&quot; disabled&gt;textarea[disabled]&lt;/textarea&gt;&#xA;<!--
+							-->&#x9;&lt;textarea name=&quot;example-textarea-1-1&quot; cols=&quot;10&quot; rows=&quot;4&quot; placeholder=&quot;textarea[cols][rows][placeholder]&quot;&gt;&lt;/textarea&gt;&#xA;<!--
+							-->&#x9;&lt;textarea name=&quot;example-textarea-1-2&quot; minlength=&quot;4&quot; maxlength=&quot;8&quot;&gt;textarea[minlength][maxlength]&lt;/textarea&gt;&#xA;<!--
+							-->&#x9;&lt;textarea name=&quot;example-textarea-1-3&quot; required&gt;textarea[required]&lt;/textarea&gt;&#xA;<!--
+							-->&#x9;&lt;textarea name=&quot;example-textarea-1-4&quot; readonly&gt;textarea[readonly]&lt;/textarea&gt;&#xA;<!--
+							-->&#x9;&lt;textarea name=&quot;example-textarea-1-5&quot; disabled&gt;textarea[disabled]&lt;/textarea&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;hr class=&quot;__hr__&quot; /&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;text&quot; name=&quot;example-text-2&quot; value=&quot;text&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;search&quot; name=&quot;example-search-2&quot; value=&quot;search&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;tel&quot; name=&quot;example-tel-2&quot; value=&quot;1234567890&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;url&quot; name=&quot;example-url-2&quot; value=&quot;https://example.com/&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;email&quot; name=&quot;example-email-2&quot; value=&quot;example@example.com&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;password&quot; name=&quot;example-password-2&quot; value=&quot;password&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;date&quot; name=&quot;example-date-2&quot; value=&quot;2001-01-01&quot; min=&quot;2001-01-01&quot; max=&quot;2100-12-31&quot; step=&quot;1&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;month&quot; name=&quot;example-month-2&quot; value=&quot;2001-01&quot; min=&quot;2001-01&quot; max=&quot;2100-12&quot; step=&quot;1&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;week&quot; name=&quot;example-week-2&quot; value=&quot;2001-W01&quot; min=&quot;2001-W01&quot; max=&quot;2100-W52&quot; step=&quot;1&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;time&quot; name=&quot;example-time-2&quot; value=&quot;00:00&quot; min=&quot;00:00&quot; max=&quot;23:59&quot; step=&quot;60&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;datetime-local&quot; name=&quot;example-datetime-2&quot; value=&quot;2001-01-01T00:00&quot; min=&quot;2001-01-01T00:00&quot; max=&quot;2100-12-31T23:59&quot; step=&quot;60&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;number&quot; name=&quot;example-number-2&quot; value=&quot;0&quot; min=&quot;0&quot; max=&quot;10&quot; step=&quot;1&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;text&quot; name=&quot;example-text-placeholder-2&quot; value=&quot;&quot; placeholder=&quot;input[placeholder]&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;text&quot; name=&quot;example-text-size-2&quot; value=&quot;input[size]&quot; size=&quot;10&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;text&quot; name=&quot;example-text-length-2&quot; value=&quot;input[minlength][maxlength]&quot; minlength=&quot;4&quot; maxlength=&quot;8&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;text&quot; name=&quot;example-text-pattern-2&quot; value=&quot;input[pattern]&quot; pattern=&quot;[a-z\[\]]+&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;text&quot; name=&quot;example-text-required-2&quot; value=&quot;input[required]&quot; required /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;text&quot; name=&quot;example-text-readonly-2&quot; value=&quot;input[readonly]&quot; readonly /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;input class=&quot;__text__&quot; type=&quot;text&quot; name=&quot;example-text-disabled-2&quot; value=&quot;input[disabled]&quot; disabled /&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-2-1&quot; value=&quot;&quot; size=&quot;10&quot; placeholder=&quot;input[size][placeholder]&quot; class=&quot;__text__&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-2-2&quot; value=&quot;input[minlength][maxlength]&quot; minlength=&quot;4&quot; maxlength=&quot;8&quot; class=&quot;__text__&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-2-3&quot; value=&quot;input[pattern]&quot; pattern=&quot;[a-z\[\]]+&quot; class=&quot;__text__&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-2-4&quot; value=&quot;input[required]&quot; class=&quot;__text__&quot; required /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-2-5&quot; value=&quot;input[readonly]&quot; class=&quot;__text__&quot; readonly /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;text&quot; name=&quot;example-text-2-6&quot; value=&quot;input[disabled]&quot; class=&quot;__text__&quot; disabled /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;search&quot; name=&quot;example-search-2&quot; value=&quot;search&quot; class=&quot;__text__&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;tel&quot; name=&quot;example-tel-2&quot; value=&quot;1234567890&quot; class=&quot;__text__&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;url&quot; name=&quot;example-url-2&quot; value=&quot;https://example.com/&quot; class=&quot;__text__&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;email&quot; name=&quot;example-email-2&quot; value=&quot;example@example.com&quot; class=&quot;__text__&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;password&quot; name=&quot;example-password-2&quot; value=&quot;password&quot; class=&quot;__text__&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;date&quot; name=&quot;example-date-2&quot; value=&quot;2001-01-01&quot; min=&quot;2001-01-01&quot; max=&quot;2100-12-31&quot; step=&quot;1&quot; class=&quot;__text__&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;month&quot; name=&quot;example-month-2&quot; value=&quot;2001-01&quot; min=&quot;2001-01&quot; max=&quot;2100-12&quot; step=&quot;1&quot; class=&quot;__text__&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;week&quot; name=&quot;example-week-2&quot; value=&quot;2001-W01&quot; min=&quot;2001-W01&quot; max=&quot;2100-W52&quot; step=&quot;1&quot; class=&quot;__text__&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;time&quot; name=&quot;example-time-2&quot; value=&quot;00:00&quot; min=&quot;00:00&quot; max=&quot;23:59&quot; step=&quot;60&quot; class=&quot;__text__&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;datetime-local&quot; name=&quot;example-datetime-2&quot; value=&quot;2001-01-01T00:00&quot; min=&quot;2001-01-01T00:00&quot; max=&quot;2100-12-31T23:59&quot; step=&quot;60&quot; class=&quot;__text__&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;number&quot; name=&quot;example-number-2&quot; value=&quot;0&quot; min=&quot;0&quot; max=&quot;10&quot; step=&quot;1&quot; class=&quot;__text__&quot; /&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;textarea class=&quot;__text__&quot; name=&quot;example-textarea-2&quot; placeholder=&quot;textarea[placeholder]&quot;&gt;&lt;/textarea&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;textarea class=&quot;__text__&quot; name=&quot;example-textarea-size-2&quot; cols=&quot;10&quot; rows=&quot;4&quot;&gt;textarea[cols][rows]&lt;/textarea&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;textarea class=&quot;__text__&quot; name=&quot;example-textarea-length-2&quot; minlength=&quot;4&quot; maxlength=&quot;8&quot;&gt;textarea[minlength][maxlength]&lt;/textarea&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;textarea class=&quot;__text__&quot; name=&quot;example-textarea-required-2&quot; required&gt;textarea[required]&lt;/textarea&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;textarea class=&quot;__text__&quot; name=&quot;example-textarea-readonly-2&quot; readonly&gt;textarea[readonly]&lt;/textarea&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-text__&quot;&gt;&lt;textarea class=&quot;__text__&quot; name=&quot;example-textarea-disabled-2&quot; disabled&gt;textarea[disabled]&lt;/textarea&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&lt;textarea name=&quot;example-textarea-2-1&quot; cols=&quot;10&quot; rows=&quot;4&quot; placeholder=&quot;textarea[cols][rows][placeholder]&quot; class=&quot;__text__&quot;&gt;&lt;/textarea&gt;&#xA;<!--
+							-->&#x9;&lt;textarea name=&quot;example-textarea-2-2&quot; minlength=&quot;4&quot; maxlength=&quot;8&quot; class=&quot;__text__&quot;&gt;textarea[minlength][maxlength]&lt;/textarea&gt;&#xA;<!--
+							-->&#x9;&lt;textarea name=&quot;example-textarea-2-3&quot; class=&quot;__text__&quot; required&gt;textarea[required]&lt;/textarea&gt;&#xA;<!--
+							-->&#x9;&lt;textarea name=&quot;example-textarea-2-4&quot; class=&quot;__text__&quot; readonly&gt;textarea[readonly]&lt;/textarea&gt;&#xA;<!--
+							-->&#x9;&lt;textarea name=&quot;example-textarea-2-5&quot; class=&quot;__text__&quot; disabled&gt;textarea[disabled]&lt;/textarea&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							--></code></pre>
 						</figure>
 						<form>
 							<p>
-								<input type="text" name="example-text-1" value="text" />
+								<input type="text" name="example-text-1-1" value="" size="10" placeholder="input[size][placeholder]" />
+								<input type="text" name="example-text-1-2" value="input[minlength][maxlength]" minlength="4" maxlength="8" />
+								<input type="text" name="example-text-1-3" value="input[pattern]" pattern="[a-z\[\]]+" />
+								<input type="text" name="example-text-1-4" value="input[required]" required />
+								<input type="text" name="example-text-1-5" value="input[readonly]" readonly />
+								<input type="text" name="example-text-1-6" value="input[disabled]" disabled />
 								<input type="search" name="example-search-1" value="search" />
 								<input type="tel" name="example-tel-1" value="1234567890" />
 								<input type="url" name="example-url-1" value="https://example.com/" />
@@ -1361,51 +1339,40 @@
 								<input type="time" name="example-time-1" value="00:00" min="00:00" max="23:59" step="60" />
 								<input type="datetime-local" name="example-datetime-1" value="2001-01-01T00:00" min="2001-01-01T00:00" max="2100-12-31T23:59" step="60" />
 								<input type="number" name="example-number-1" value="0" min="0" max="10" step="1" />
-								<input type="text" name="example-text-placeholder-1" value="" placeholder="input[placeholder]" />
-								<input type="text" name="example-text-size-1" value="input[size]" size="10" />
-								<input type="text" name="example-text-length-1" value="input[minlength][maxlength]" minlength="4" maxlength="8" />
-								<input type="text" name="example-text-pattern-1" value="input[pattern]" pattern="[a-z\[\]]+" />
-								<input type="text" name="example-text-required-1" value="input[required]" required />
-								<input type="text" name="example-text-readonly-1" value="input[readonly]" readonly />
-								<input type="text" name="example-text-disabled-1" value="input[disabled]" disabled />
 							</p>
 							<p>
-								<textarea name="example-textarea-1" placeholder="textarea[placeholder]"></textarea>
-								<textarea name="example-textarea-size-1" cols="10" rows="4">textarea[cols][rows]</textarea>
-								<textarea name="example-textarea-length-1" minlength="4" maxlength="8">textarea[minlength][maxlength]</textarea>
-								<textarea name="example-textarea-required-1" required>textarea[required]</textarea>
-								<textarea name="example-textarea-readonly-1" readonly>textarea[readonly]</textarea>
-								<textarea name="example-textarea-disabled-1" disabled>textarea[disabled]</textarea>
+								<textarea name="example-textarea-1-1" cols="10" rows="4" placeholder="textarea[cols][rows][placeholder]"></textarea>
+								<textarea name="example-textarea-1-2" minlength="4" maxlength="8">textarea[minlength][maxlength]</textarea>
+								<textarea name="example-textarea-1-3" required>textarea[required]</textarea>
+								<textarea name="example-textarea-1-4" readonly>textarea[readonly]</textarea>
+								<textarea name="example-textarea-1-5" disabled>textarea[disabled]</textarea>
 							</p>
 							<hr class="__hr__" />
 							<p>
-								<label class="__label-text__"><input class="__text__" type="text" name="example-text-2" value="text" /></label>
-								<label class="__label-text__"><input class="__text__" type="search" name="example-search-2" value="search" /></label>
-								<label class="__label-text__"><input class="__text__" type="tel" name="example-tel-2" value="1234567890" /></label>
-								<label class="__label-text__"><input class="__text__" type="url" name="example-url-2" value="https://example.com/" /></label>
-								<label class="__label-text__"><input class="__text__" type="email" name="example-email-2" value="example@example.com" /></label>
-								<label class="__label-text__"><input class="__text__" type="password" name="example-password-2" value="password" /></label>
-								<label class="__label-text__"><input class="__text__" type="date" name="example-date-2" value="2001-01-01" min="2001-01-01" max="2100-12-31" step="1" /></label>
-								<label class="__label-text__"><input class="__text__" type="month" name="example-month-2" value="2001-01" min="2001-01" max="2100-12" step="1" /></label>
-								<label class="__label-text__"><input class="__text__" type="week" name="example-week-2" value="2001-W01" min="2001-W01" max="2100-W52" step="1" /></label>
-								<label class="__label-text__"><input class="__text__" type="time" name="example-time-2" value="00:00" min="00:00" max="23:59" step="60" /></label>
-								<label class="__label-text__"><input class="__text__" type="datetime-local" name="example-datetime-2" value="2001-01-01T00:00" min="2001-01-01T00:00" max="2100-12-31T23:59" step="60" /></label>
-								<label class="__label-text__"><input class="__text__" type="number" name="example-number-2" value="0" min="0" max="10" step="1" /></label>
-								<label class="__label-text__"><input class="__text__" type="text" name="example-text-placeholder-2" value="" placeholder="input[placeholder]" /></label>
-								<label class="__label-text__"><input class="__text__" type="text" name="example-text-size-2" value="input[size]" size="10" /></label>
-								<label class="__label-text__"><input class="__text__" type="text" name="example-text-length-2" value="input[minlength][maxlength]" minlength="4" maxlength="8" /></label>
-								<label class="__label-text__"><input class="__text__" type="text" name="example-text-pattern-2" value="input[pattern]" pattern="[a-z\[\]]+" /></label>
-								<label class="__label-text__"><input class="__text__" type="text" name="example-text-required-2" value="input[required]" required /></label>
-								<label class="__label-text__"><input class="__text__" type="text" name="example-text-readonly-2" value="input[readonly]" readonly /></label>
-								<label class="__label-text__"><input class="__text__" type="text" name="example-text-disabled-2" value="input[disabled]" disabled /></label>
+								<input type="text" name="example-text-2-1" value="" size="10" placeholder="input[size][placeholder]" class="__text__" />
+								<input type="text" name="example-text-2-2" value="input[minlength][maxlength]" minlength="4" maxlength="8" class="__text__" />
+								<input type="text" name="example-text-2-3" value="input[pattern]" pattern="[a-z\[\]]+" class="__text__" />
+								<input type="text" name="example-text-2-4" value="input[required]" class="__text__" required />
+								<input type="text" name="example-text-2-5" value="input[readonly]" class="__text__" readonly />
+								<input type="text" name="example-text-2-6" value="input[disabled]" class="__text__" disabled />
+								<input type="search" name="example-search-2" value="search" class="__text__" />
+								<input type="tel" name="example-tel-2" value="1234567890" class="__text__" />
+								<input type="url" name="example-url-2" value="https://example.com/" class="__text__" />
+								<input type="email" name="example-email-2" value="example@example.com" class="__text__" />
+								<input type="password" name="example-password-2" value="password" class="__text__" />
+								<input type="date" name="example-date-2" value="2001-01-01" min="2001-01-01" max="2100-12-31" step="1" class="__text__" />
+								<input type="month" name="example-month-2" value="2001-01" min="2001-01" max="2100-12" step="1" class="__text__" />
+								<input type="week" name="example-week-2" value="2001-W01" min="2001-W01" max="2100-W52" step="1" class="__text__" />
+								<input type="time" name="example-time-2" value="00:00" min="00:00" max="23:59" step="60" class="__text__" />
+								<input type="datetime-local" name="example-datetime-2" value="2001-01-01T00:00" min="2001-01-01T00:00" max="2100-12-31T23:59" step="60" class="__text__" />
+								<input type="number" name="example-number-2" value="0" min="0" max="10" step="1" class="__text__" />
 							</p>
 							<p>
-								<label class="__label-text__"><textarea class="__text__" name="example-textarea-2" placeholder="textarea[placeholder]"></textarea></label>
-								<label class="__label-text__"><textarea class="__text__" name="example-textarea-size-2" cols="10" rows="4">textarea[cols][rows]</textarea></label>
-								<label class="__label-text__"><textarea class="__text__" name="example-textarea-length-2" minlength="4" maxlength="8">textarea[minlength][maxlength]</textarea></label>
-								<label class="__label-text__"><textarea class="__text__" name="example-textarea-required-2" required>textarea[required]</textarea></label>
-								<label class="__label-text__"><textarea class="__text__" name="example-textarea-readonly-2" readonly>textarea[readonly]</textarea></label>
-								<label class="__label-text__"><textarea class="__text__" name="example-textarea-disabled-2" disabled>textarea[disabled]</textarea></label>
+								<textarea name="example-textarea-2-1" cols="10" rows="4" placeholder="textarea[cols][rows][placeholder]" class="__text__"></textarea>
+								<textarea name="example-textarea-2-2" minlength="4" maxlength="8" class="__text__">textarea[minlength][maxlength]</textarea>
+								<textarea name="example-textarea-2-3" class="__text__" required>textarea[required]</textarea>
+								<textarea name="example-textarea-2-4" class="__text__" readonly>textarea[readonly]</textarea>
+								<textarea name="example-textarea-2-5" class="__text__" disabled>textarea[disabled]</textarea>
 							</p>
 							<p><button type="reset" class="__button__">リセット</button></p>
 						</form>
@@ -1416,29 +1383,29 @@
 							<figcaption>HTML</figcaption>
 							<pre class="__pre__code"><code><!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;file&quot; name=&quot;example-file-1&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;file&quot; name=&quot;example-file-required-1&quot; required /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;file&quot; name=&quot;example-file-disabled-1&quot; disabled /&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;file&quot; name=&quot;example-file-1-1&quot; /&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;file&quot; name=&quot;example-file-1-2&quot; required /&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;file&quot; name=&quot;example-file-1-3&quot; disabled /&gt;&lt;/label&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;hr class=&quot;__hr__&quot; /&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-file__&quot;&gt;&lt;input class=&quot;__file__&quot; type=&quot;file&quot; name=&quot;example-file-2&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-file__&quot;&gt;&lt;input class=&quot;__file__&quot; type=&quot;file&quot; name=&quot;example-file-required-2&quot; required /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-file__&quot;&gt;&lt;input class=&quot;__file__&quot; type=&quot;file&quot; name=&quot;example-file-disabled-2&quot; disabled /&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;file&quot; name=&quot;example-file-2-1&quot; class=&quot;__file__&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;file&quot; name=&quot;example-file-2-2&quot; class=&quot;__file__&quot; required /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;file&quot; name=&quot;example-file-2-3&quot; class=&quot;__file__&quot; disabled /&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							--></code></pre>
 						</figure>
 						<form>
 							<p>
-								<input type="file" name="example-file-1" />
-								<input type="file" name="example-file-required-1" required />
-								<input type="file" name="example-file-disabled-1" disabled />
+								<input type="file" name="example-file-1-1" />
+								<input type="file" name="example-file-1-2" required />
+								<input type="file" name="example-file-1-3" disabled />
 							</p>
 							<hr class="__hr__" />
 							<p>
-								<label class="__label-file__"><input class="__file__" type="file" name="example-file-2" /></label>
-								<label class="__label-file__"><input class="__file__" type="file" name="example-file-required-2" required /></label>
-								<label class="__label-file__"><input class="__file__" type="file" name="example-file-disabled-2" disabled /></label>
+								<input type="file" name="example-file-2-1" class="__file__" />
+								<input type="file" name="example-file-2-2" class="__file__" required />
+								<input type="file" name="example-file-2-3" class="__file__" disabled />
 							</p>
 							<p><button type="reset" class="__button__">リセット</button></p>
 						</form>
@@ -1449,7 +1416,7 @@
 							<figcaption>HTML</figcaption>
 							<pre class="__pre__code"><code><!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;select name=&quot;example-select-1&quot;&gt;&#xA;<!--
+							-->&#x9;&lt;select name=&quot;example-select-1-1&quot;&gt;&#xA;<!--
 							-->&#x9;&#x9;&lt;optgroup &hellip; &gt;&#xA;<!--
 							-->&#x9;&#x9;&#x9;&lt;option value=&quot;&quot; selected&gt; &hellip; &lt;/option&gt;&#xA;<!--
 							-->&#x9;&#x9;&#x9;&lt;option&gt; &hellip; &lt;/option&gt;&#xA;<!--
@@ -1463,48 +1430,48 @@
 							-->&#x9;&#x9;&#x9;&lt;option disabled&gt; &hellip; &lt;/option&gt;&#xA;<!--
 							-->&#x9;&#x9;&lt;/optgroup&gt;&#xA;<!--
 							-->&#x9;&lt;/select&gt;&#xA;<!--
-							-->&#x9;&lt;select name=&quot;example-select-disabled-1&quot; disabled&gt; &hellip; &lt;/select&gt;&#xA;<!--
-							-->&#x9;&lt;select name=&quot;example-select-size-1&quot; size=&quot;1&quot;&gt; &hellip; &lt;/select&gt;&#xA;<!--
-							-->&#x9;&lt;select name=&quot;example-select-size-disabled-1&quot; size=&quot;1&quot; disabled&gt; &hellip; &lt;/select&gt;&#xA;<!--
+							-->&#x9;&lt;select name=&quot;example-select-1-2&quot; disabled&gt; &hellip; &lt;/select&gt;&#xA;<!--
+							-->&#x9;&lt;select name=&quot;example-select-1-3&quot; size=&quot;1&quot;&gt; &hellip; &lt;/select&gt;&#xA;<!--
+							-->&#x9;&lt;select name=&quot;example-select-1-4&quot; size=&quot;1&quot; disabled&gt; &hellip; &lt;/select&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;select name=&quot;example-select-multiple-1&quot; multiple&gt; &hellip; &lt;/select&gt;&#xA;<!--
-							-->&#x9;&lt;select name=&quot;example-select-multiple-disabled-1&quot; multiple disabled&gt; &hellip; &lt;/select&gt;&#xA;<!--
+							-->&#x9;&lt;select name=&quot;example-select-1-5&quot; multiple&gt; &hellip; &lt;/select&gt;&#xA;<!--
+							-->&#x9;&lt;select name=&quot;example-select-1-6&quot; multiple disabled&gt; &hellip; &lt;/select&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;hr class=&quot;__hr__&quot; /&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-select__&quot;&gt;&lt;select class=&quot;__select__&quot; name=&quot;example-select-2&quot;&gt; &hellip; &lt;/select&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-select__&quot;&gt;&lt;select class=&quot;__select__&quot; name=&quot;example-select-disabled-2&quot; disabled&gt; &hellip; &lt;/select&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-select__&quot;&gt;&lt;select class=&quot;__select__&quot; name=&quot;example-select-size-2&quot; size=&quot;1&quot;&gt; &hellip; &lt;/select&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-select__&quot;&gt;&lt;select class=&quot;__select__&quot; name=&quot;example-select-size-disabled-2&quot; size=&quot;1&quot; disabled&gt; &hellip; &lt;/select&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&lt;select name=&quot;example-select-2-1&quot; class=&quot;__select__&quot;&gt; &hellip; &lt;/select&gt;&#xA;<!--
+							-->&#x9;&lt;select name=&quot;example-select-2-2&quot; class=&quot;__select__&quot; disabled&gt; &hellip; &lt;/select&gt;&#xA;<!--
+							-->&#x9;&lt;select name=&quot;example-select-2-3&quot; size=&quot;1&quot; class=&quot;__select__&quot;&gt; &hellip; &lt;/select&gt;&#xA;<!--
+							-->&#x9;&lt;select name=&quot;example-select-2-4&quot; size=&quot;1&quot; class=&quot;__select__&quot; disabled&gt; &hellip; &lt;/select&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-select__&quot;&gt;&lt;select class=&quot;__select__&quot; name=&quot;example-select-multiple-2&quot; multiple&gt; &hellip; &lt;/select&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-select__&quot;&gt;&lt;select class=&quot;__select__&quot; name=&quot;example-select-multiple-disabled-2&quot; multiple disabled&gt; &hellip; &lt;/select&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&lt;select name=&quot;example-select-2-5&quot; class=&quot;__select__&quot; multiple&gt; &hellip; &lt;/select&gt;&#xA;<!--
+							-->&#x9;&lt;select name=&quot;example-select-2-6&quot; class=&quot;__select__&quot; multiple disabled&gt; &hellip; &lt;/select&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							--></code></pre>
 						</figure>
 						<form>
 							<p>
-								<select name="example-select-1"><optgroup label="グループ1"><option value="" selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
-								<select name="example-select-disabled-1" disabled><optgroup label="グループ1"><option value="" selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
-								<select name="example-select-size-1" size="1"><optgroup label="グループ1"><option selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
-								<select name="example-select-size-disabled-1" size="1" disabled><optgroup label="グループ1"><option selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
+								<select name="example-select-1-1"><optgroup label="グループ1"><option value="" selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
+								<select name="example-select-1-2" disabled><optgroup label="グループ1"><option value="" selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
+								<select name="example-select-1-3" size="1"><optgroup label="グループ1"><option selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
+								<select name="example-select-1-4" size="1" disabled><optgroup label="グループ1"><option selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
 							</p>
 							<p>
-								<select name="example-select-multiple-1" multiple><optgroup label="グループ1"><option selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
-								<select name="example-select-multiple-disabled-1" multiple disabled><optgroup label="グループ1"><option selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
+								<select name="example-select-1-5" multiple><optgroup label="グループ1"><option selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
+								<select name="example-select-1-6" multiple disabled><optgroup label="グループ1"><option selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
 							</p>
 							<hr class="__hr__" />
 							<p>
-								<label class="__label-select__"><select class="__select__" name="example-select-2"><optgroup label="グループ1"><option value="" selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select></label>
-								<label class="__label-select__"><select class="__select__" name="example-select-disabled-2" disabled><optgroup label="グループ1"><option value="" selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select></label>
-								<label class="__label-select__"><select class="__select__" name="example-select-size-2" size="1"><optgroup label="グループ1"><option selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select></label>
-								<label class="__label-select__"><select class="__select__" name="example-select-size-disabled-2" size="1" disabled><optgroup label="グループ1"><option selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select></label>
+								<select name="example-select-2-1" class="__select__"><optgroup label="グループ1"><option value="" selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
+								<select name="example-select-2-2" class="__select__" disabled><optgroup label="グループ1"><option value="" selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
+								<select name="example-select-2-3" size="1" class="__select__"><optgroup label="グループ1"><option selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
+								<select name="example-select-2-4" size="1" class="__select__" disabled><optgroup label="グループ1"><option selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
 							</p>
 							<p>
-								<label class="__label-select__"><select class="__select__" name="example-select-multiple-2" multiple><optgroup label="グループ1"><option selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select></label>
-								<label class="__label-select__"><select class="__select__" name="example-select-multiple-disabled-2" multiple disabled><optgroup label="グループ1"><option selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select></label>
+								<select name="example-select-2-5" class="__select__" multiple><optgroup label="グループ1"><option selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
+								<select name="example-select-2-6" class="__select__" multiple disabled><optgroup label="グループ1"><option selected>オプション1</option><option>オプション2</option></optgroup><optgroup label="グループ2"><option>オプション3</option><option disabled>オプション4</option></optgroup><optgroup label="グループ3" disabled><option>オプション5</option><option disabled>オプション6</option></optgroup></select>
 							</p>
 							<p><button type="reset" class="__button__">リセット</button></p>
 						</form>
@@ -1515,25 +1482,25 @@
 							<figcaption>HTML</figcaption>
 							<pre class="__pre__code"><code><!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;range&quot; name=&quot;example-range-1&quot; value=&quot;0&quot; min=&quot;0&quot; max=&quot;10&quot; step=&quot;1&quot; /&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;range&quot; name=&quot;example-range-disabled-1&quot; value=&quot;0&quot; min=&quot;0&quot; max=&quot;10&quot; step=&quot;1&quot; disabled /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;range&quot; name=&quot;example-range-1-1&quot; value=&quot;0&quot; min=&quot;0&quot; max=&quot;10&quot; step=&quot;1&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;range&quot; name=&quot;example-range-1-2&quot; value=&quot;0&quot; min=&quot;0&quot; max=&quot;10&quot; step=&quot;1&quot; disabled /&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;hr class=&quot;__hr__&quot; /&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-range__&quot;&gt;&lt;input class=&quot;__range__&quot; type=&quot;range&quot; name=&quot;example-range-2&quot; value=&quot;0&quot; min=&quot;0&quot; max=&quot;10&quot; step=&quot;1&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-range__&quot;&gt;&lt;input class=&quot;__range__&quot; type=&quot;range&quot; name=&quot;example-range-disabled-2&quot; value=&quot;0&quot; min=&quot;0&quot; max=&quot;10&quot; step=&quot;1&quot; disabled /&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;range&quot; name=&quot;example-range-2-1&quot; value=&quot;0&quot; min=&quot;0&quot; max=&quot;10&quot; step=&quot;1&quot; class=&quot;__range__&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;range&quot; name=&quot;example-range-2-2&quot; value=&quot;0&quot; min=&quot;0&quot; max=&quot;10&quot; step=&quot;1&quot; class=&quot;__range__&quot; disabled /&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							--></code></pre>
 						</figure>
 						<form>
 							<p>
-								<input type="range" name="example-range-1" value="0" min="0" max="10" step="1" />
-								<input type="range" name="example-range-disabled-1" value="0" min="0" max="10" step="1" disabled />
+								<input type="range" name="example-range-1-1" value="0" min="0" max="10" step="1" />
+								<input type="range" name="example-range-1-2" value="0" min="0" max="10" step="1" disabled />
 							</p>
 							<hr class="__hr__" />
 							<p>
-								<label class="__label-range__"><input class="__range__" type="range" name="example-range-2" value="0" min="0" max="10" step="1" /></label>
-								<label class="__label-range__"><input class="__range__" type="range" name="example-range-disabled-2" value="0" min="0" max="10" step="1" disabled /></label>
+								<input type="range" name="example-range-2-1" value="0" min="0" max="10" step="1" class="__range__" />
+								<input type="range" name="example-range-2-2" value="0" min="0" max="10" step="1" class="__range__" disabled />
 							</p>
 							<p><button type="reset" class="__button__">リセット</button></p>
 						</form>
@@ -1544,25 +1511,25 @@
 							<figcaption>HTML</figcaption>
 							<pre class="__pre__code"><code><!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;color&quot; name=&quot;example-color-1&quot; value=&quot;#ff0000&quot; pattern=&quot;#[A-Za-z0-9]{6}&quot; /&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;color&quot; name=&quot;example-color-disabled-1&quot; value=&quot;#ff0000&quot; pattern=&quot;#[A-Za-z0-9]{6}&quot; disabled /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;color&quot; name=&quot;example-color-1-1&quot; value=&quot;#ff0000&quot; pattern=&quot;#[A-Za-z0-9]{6}&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;color&quot; name=&quot;example-color-1-2&quot; value=&quot;#ff0000&quot; pattern=&quot;#[A-Za-z0-9]{6}&quot; disabled /&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;hr class=&quot;__hr__&quot; /&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-color__&quot;&gt;&lt;input class=&quot;__color__&quot; type=&quot;color&quot; name=&quot;example-color-2&quot; value=&quot;#ff0000&quot; pattern=&quot;#[A-Za-z0-9]{6}&quot; /&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&lt;label class=&quot;__label-color__&quot;&gt;&lt;input class=&quot;__color__&quot; type=&quot;color&quot; name=&quot;example-color-disabled-2&quot; value=&quot;#ff0000&quot; pattern=&quot;#[A-Za-z0-9]{6}&quot; disabled /&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;color&quot; name=&quot;example-color-2-1&quot; value=&quot;#ff0000&quot; pattern=&quot;#[A-Za-z0-9]{6}&quot; class=&quot;__color__&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;color&quot; name=&quot;example-color-2-2&quot; value=&quot;#ff0000&quot; pattern=&quot;#[A-Za-z0-9]{6}&quot; class=&quot;__color__&quot; disabled /&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							--></code></pre>
 						</figure>
 						<form>
 							<p>
-								<input type="color" name="example-color-1" value="#ff0000" pattern="#[A-Za-z0-9]{6}" />
-								<input type="color" name="example-color-disabled-1" value="#ff0000" pattern="#[A-Za-z0-9]{6}" disabled />
+								<input type="color" name="example-color-1-1" value="#ff0000" pattern="#[A-Za-z0-9]{6}" />
+								<input type="color" name="example-color-1-2" value="#ff0000" pattern="#[A-Za-z0-9]{6}" disabled />
 							</p>
 							<hr class="__hr__" />
 							<p>
-								<label class="__label-color__"><input class="__color__" type="color" name="example-color-2" value="#ff0000" pattern="#[A-Za-z0-9]{6}" /></label>
-								<label class="__label-color__"><input class="__color__" type="color" name="example-color-disabled-2" value="#ff0000" pattern="#[A-Za-z0-9]{6}" disabled /></label>
+								<input type="color" name="example-color-2-1" value="#ff0000" pattern="#[A-Za-z0-9]{6}" class="__color__" />
+								<input type="color" name="example-color-2-2" value="#ff0000" pattern="#[A-Za-z0-9]{6}" class="__color__" disabled />
 							</p>
 							<p><button type="reset" class="__button__">リセット</button></p>
 						</form>
@@ -1573,46 +1540,46 @@
 							<figcaption>HTML</figcaption>
 							<pre class="__pre__code"><code><!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;checkbox&quot; &hellip; checked /&gt;&lt;span&gt;チェックボックス1&lt;/span&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;checkbox&quot; &hellip; required /&gt;&lt;span&gt;チェックボックス2&lt;/span&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;checkbox&quot; &hellip; disabled /&gt;&lt;span&gt;チェックボックス3&lt;/span&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;checkbox&quot; name=&quot;example-checkbox-1&quot; checked /&gt;&lt;span&gt;チェックボックス1&lt;/span&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;checkbox&quot; name=&quot;example-checkbox-1&quot; required /&gt;&lt;span&gt;チェックボックス2&lt;/span&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;checkbox&quot; name=&quot;example-checkbox-1&quot; disabled /&gt;&lt;span&gt;チェックボックス3&lt;/span&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;hr class=&quot;__hr__&quot; /&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
 							-->&#x9;&lt;span class=&quot;__span-checkbox__&quot; style=&quot;--column-width: 12em;&quot;&gt;&#xA;<!--
-							-->&#x9;&#x9;&lt;label class=&quot;__label-checkbox__&quot;&gt;&lt;input class=&quot;__checkbox__&quot; type=&quot;checkbox&quot; &hellip; checked /&gt;&lt;span&gt;チェックボックス1&lt;/span&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&#x9;&lt;label class=&quot;__label-checkbox__&quot;&gt;&lt;input class=&quot;__checkbox__&quot; type=&quot;checkbox&quot; &hellip; required /&gt;&lt;span&gt;チェックボックス2&lt;/span&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&#x9;&lt;label class=&quot;__label-checkbox__&quot;&gt;&lt;input class=&quot;__checkbox__&quot; type=&quot;checkbox&quot; &hellip; disabled /&gt;&lt;span&gt;チェックボックス3&lt;/span&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&#x9;&lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;example-checkbox-2&quot; class=&quot;__checkbox__&quot; checked /&gt;&lt;span&gt;チェックボックス1&lt;/span&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&#x9;&lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;example-checkbox-2&quot; class=&quot;__checkbox__&quot; required /&gt;&lt;span&gt;チェックボックス2&lt;/span&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&#x9;&lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;example-checkbox-2&quot; class=&quot;__checkbox__&quot; disabled /&gt;&lt;span&gt;チェックボックス3&lt;/span&gt;&lt;/label&gt;&#xA;<!--
 							-->&#x9;&lt;/span&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
 							-->&#x9;&lt;span class=&quot;__span-checkbox__&quot; style=&quot;--column-width: 12em;&quot;&gt;&#xA;<!--
-							-->&#x9;&#x9;&lt;label class=&quot;__label-checkbox__&quot;&gt;&lt;input class=&quot;__checkbox__&quot; type=&quot;checkbox&quot; &hellip; disabled checked /&gt;&lt;span&gt;チェックボックス1&lt;/span&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&#x9;&lt;label class=&quot;__label-checkbox__&quot;&gt;&lt;input class=&quot;__checkbox__&quot; type=&quot;checkbox&quot; &hellip; disabled required /&gt;&lt;span&gt;チェックボックス2&lt;/span&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&#x9;&lt;label class=&quot;__label-checkbox__&quot;&gt;&lt;input class=&quot;__checkbox__&quot; type=&quot;checkbox&quot; &hellip; disabled /&gt;&lt;span&gt;チェックボックス3&lt;/span&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&#x9;&lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;example-checkbox-3&quot; class=&quot;__checkbox__&quot; disabled checked /&gt;&lt;span&gt;チェックボックス1&lt;/span&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&#x9;&lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;example-checkbox-3&quot; class=&quot;__checkbox__&quot; disabled required /&gt;&lt;span&gt;チェックボックス2&lt;/span&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&#x9;&lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;example-checkbox-3&quot; class=&quot;__checkbox__&quot; disabled /&gt;&lt;span&gt;チェックボックス3&lt;/span&gt;&lt;/label&gt;&#xA;<!--
 							-->&#x9;&lt;/span&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							--></code></pre>
 						</figure>
 						<form>
 							<p>
-								<label><input type="checkbox" name="example-checkbox-0" checked /><span>チェックボックス1</span></label>
-								<label><input type="checkbox" name="example-checkbox-0" required /><span>チェックボックス2</span></label>
-								<label><input type="checkbox" name="example-checkbox-0" disabled /><span>チェックボックス3</span></label>
+								<label><input type="checkbox" name="example-checkbox-1" checked /><span>チェックボックス1</span></label>
+								<label><input type="checkbox" name="example-checkbox-1" required /><span>チェックボックス2</span></label>
+								<label><input type="checkbox" name="example-checkbox-1" disabled /><span>チェックボックス3</span></label>
 							</p>
 							<hr class="__hr__" />
 							<p>
 								<span class="__span-checkbox__" style="--column-width: 12em;">
-									<label class="__label-checkbox__"><input class="__checkbox__" type="checkbox" name="example-checkbox-1" checked /><span>チェックボックス1</span></label>
-									<label class="__label-checkbox__"><input class="__checkbox__" type="checkbox" name="example-checkbox-1" required /><span>チェックボックス2</span></label>
-									<label class="__label-checkbox__"><input class="__checkbox__" type="checkbox" name="example-checkbox-1" disabled /><span>チェックボックス3</span></label>
+									<label><input type="checkbox" name="example-checkbox-2" class="__checkbox__" checked /><span>チェックボックス1</span></label>
+									<label><input type="checkbox" name="example-checkbox-2" class="__checkbox__" required /><span>チェックボックス2</span></label>
+									<label><input type="checkbox" name="example-checkbox-2" class="__checkbox__" disabled /><span>チェックボックス3</span></label>
 								</span>
 							</p>
 							<p>
 								<span class="__span-checkbox__" style="--column-width: 12em;">
-									<label class="__label-checkbox__"><input class="__checkbox__" type="checkbox" name="example-checkbox-2" disabled checked /><span>チェックボックス1</span></label>
-									<label class="__label-checkbox__"><input class="__checkbox__" type="checkbox" name="example-checkbox-2" disabled required /><span>チェックボックス2</span></label>
-									<label class="__label-checkbox__"><input class="__checkbox__" type="checkbox" name="example-checkbox-2" disabled /><span>チェックボックス3</span></label>
+									<label><input type="checkbox" name="example-checkbox-3" class="__checkbox__" disabled checked /><span>チェックボックス1</span></label>
+									<label><input type="checkbox" name="example-checkbox-3" class="__checkbox__" disabled required /><span>チェックボックス2</span></label>
+									<label><input type="checkbox" name="example-checkbox-3" class="__checkbox__" disabled /><span>チェックボックス3</span></label>
 								</span>
 							</p>
 							<p><button type="reset" class="__button__">リセット</button></p>
@@ -1624,46 +1591,46 @@
 							<figcaption>HTML</figcaption>
 							<pre class="__pre__code"><code><!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;radio&quot; &hellip; checked /&gt;&lt;span&gt;ラジオボタン1&lt;/span&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;radio&quot; &hellip; /&gt;&lt;span&gt;ラジオボタン2&lt;/span&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;radio&quot; &hellip; disabled /&gt;&lt;span&gt;ラジオボタン3&lt;/span&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;radio&quot; name=&quot;example-radio-1&quot; checked /&gt;&lt;span&gt;ラジオボタン1&lt;/span&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;radio&quot; name=&quot;example-radio-1&quot; /&gt;&lt;span&gt;ラジオボタン2&lt;/span&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;radio&quot; name=&quot;example-radio-1&quot; disabled /&gt;&lt;span&gt;ラジオボタン3&lt;/span&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;hr class=&quot;__hr__&quot; /&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
 							-->&#x9;&lt;span class=&quot;__span-radio__&quot; style=&quot;--column-width: 12em;&quot;&gt;&#xA;<!--
-							-->&#x9;&#x9;&lt;label class=&quot;__label-radio__&quot;&gt;&lt;input class=&quot;__radio__&quot; type=&quot;radio&quot; &hellip; checked /&gt;&lt;span&gt;ラジオボタン1&lt;/span&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&#x9;&lt;label class=&quot;__label-radio__&quot;&gt;&lt;input class=&quot;__radio__&quot; type=&quot;radio&quot; &hellip; /&gt;&lt;span&gt;ラジオボタン2&lt;/span&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&#x9;&lt;label class=&quot;__label-radio__&quot;&gt;&lt;input class=&quot;__radio__&quot; type=&quot;radio&quot; &hellip; disabled /&gt;&lt;span&gt;ラジオボタン3&lt;/span&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&#x9;&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;example-radio-2&quot; class=&quot;__radio__&quot; checked /&gt;&lt;span&gt;ラジオボタン1&lt;/span&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&#x9;&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;example-radio-2&quot; class=&quot;__radio__&quot; /&gt;&lt;span&gt;ラジオボタン2&lt;/span&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&#x9;&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;example-radio-2&quot; class=&quot;__radio__&quot; disabled /&gt;&lt;span&gt;ラジオボタン3&lt;/span&gt;&lt;/label&gt;&#xA;<!--
 							-->&#x9;&lt;/span&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
 							-->&#x9;&lt;span class=&quot;__span-radio__&quot; style=&quot;--column-width: 12em;&quot;&gt;&#xA;<!--
-							-->&#x9;&#x9;&lt;label class=&quot;__label-radio__&quot;&gt;&lt;input class=&quot;__radio__&quot; type=&quot;radio&quot; &hellip; disabled checked /&gt;&lt;span&gt;ラジオボタン1&lt;/span&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&#x9;&lt;label class=&quot;__label-radio__&quot;&gt;&lt;input class=&quot;__radio__&quot; type=&quot;radio&quot; &hellip; disabled /&gt;&lt;span&gt;ラジオボタン2&lt;/span&gt;&lt;/label&gt;&#xA;<!--
-							-->&#x9;&#x9;&lt;label class=&quot;__label-radio__&quot;&gt;&lt;input class=&quot;__radio__&quot; type=&quot;radio&quot; &hellip; disabled /&gt;&lt;span&gt;ラジオボタン3&lt;/span&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&#x9;&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;example-radio-3&quot; class=&quot;__radio__&quot; disabled checked /&gt;&lt;span&gt;ラジオボタン1&lt;/span&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&#x9;&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;example-radio-3&quot; class=&quot;__radio__&quot; disabled /&gt;&lt;span&gt;ラジオボタン2&lt;/span&gt;&lt;/label&gt;&#xA;<!--
+							-->&#x9;&#x9;&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;example-radio-3&quot; class=&quot;__radio__&quot; disabled /&gt;&lt;span&gt;ラジオボタン3&lt;/span&gt;&lt;/label&gt;&#xA;<!--
 							-->&#x9;&lt;/span&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							--></code></pre>
 						</figure>
 						<form>
 							<p>
-								<label><input type="radio" name="example-radio-0" checked /><span>ラジオボタン1</span></label>
-								<label><input type="radio" name="example-radio-0" /><span>ラジオボタン2</span></label>
-								<label><input type="radio" name="example-radio-0" disabled /><span>ラジオボタン3</span></label>
+								<label><input type="radio" name="example-radio-1" checked /><span>ラジオボタン1</span></label>
+								<label><input type="radio" name="example-radio-1" /><span>ラジオボタン2</span></label>
+								<label><input type="radio" name="example-radio-1" disabled /><span>ラジオボタン3</span></label>
 							</p>
 							<hr class="__hr__" />
 							<p>
 								<span class="__span-radio__" style="--column-width: 12em;">
-									<label class="__label-radio__"><input class="__radio__" type="radio" name="example-radio-1" checked /><span>ラジオボタン1</span></label>
-									<label class="__label-radio__"><input class="__radio__" type="radio" name="example-radio-1" /><span>ラジオボタン2</span></label>
-									<label class="__label-radio__"><input class="__radio__" type="radio" name="example-radio-1" disabled /><span>ラジオボタン3</span></label>
+									<label><input type="radio" name="example-radio-2" class="__radio__" checked /><span>ラジオボタン1</span></label>
+									<label><input type="radio" name="example-radio-2" class="__radio__" /><span>ラジオボタン2</span></label>
+									<label><input type="radio" name="example-radio-2" class="__radio__" disabled /><span>ラジオボタン3</span></label>
 								</span>
 							</p>
 							<p>
 								<span class="__span-radio__" style="--column-width: 12em;">
-									<label class="__label-radio__"><input class="__radio__" type="radio" name="example-radio-2" disabled checked /><span>ラジオボタン1</span></label>
-									<label class="__label-radio__"><input class="__radio__" type="radio" name="example-radio-2" disabled /><span>ラジオボタン2</span></label>
-									<label class="__label-radio__"><input class="__radio__" type="radio" name="example-radio-2" disabled /><span>ラジオボタン3</span></label>
+									<label><input type="radio" name="example-radio-3" class="__radio__" disabled checked /><span>ラジオボタン1</span></label>
+									<label><input type="radio" name="example-radio-3" class="__radio__" disabled /><span>ラジオボタン2</span></label>
+									<label><input type="radio" name="example-radio-3" class="__radio__" disabled /><span>ラジオボタン3</span></label>
 								</span>
 							</p>
 							<p><button type="reset" class="__button__">リセット</button></p>
@@ -1675,64 +1642,70 @@
 							<figcaption>HTML</figcaption>
 							<pre class="__pre__code"><code><!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;button&quot; value=&quot;ボタン&quot; /&gt;&#xA;<!--
-							-->&#x9;&lt;input type=&quot;button&quot; value=&quot;ボタン&quot; disabled /&gt;&#xA;<!--
 							-->&#x9;&lt;button type=&quot;button&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
 							-->&#x9;&lt;button type=&quot;button&quot; disabled&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;button&quot; value=&quot;ボタン&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;button&quot; value=&quot;ボタン&quot; disabled /&gt;&#xA;<!--
 							-->&#x9;&lt;a href=&quot;#&quot;&gt;ボタン&lt;/a&gt;&#xA;<!--
+							-->&#x9;&lt;a href=&quot;#&quot; class=&quot;__button__link&quot;&gt;ボタン&lt;/a&gt;&#xA;<!--
+							-->&#x9;&lt;button type=&quot;button&quot; class=&quot;__button__link&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;button&quot; value=&quot;ボタン&quot; class=&quot;__button__link&quot; /&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;hr class=&quot;__hr__&quot; /&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;input class=&quot;__button__&quot; type=&quot;button&quot; value=&quot;ボタン&quot; /&gt;&#xA;<!--
-							-->&#x9;&lt;input class=&quot;__button__&quot; type=&quot;button&quot; value=&quot;ボタン&quot; disabled /&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; disabled&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;a class=&quot;__button__&quot; href=&quot;#&quot;&gt;ボタン&lt;/a&gt;&#xA;<!--
+							-->&#x9;&lt;button type=&quot;button&quot; class=&quot;__button__&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button type=&quot;button&quot; class=&quot;__button__&quot; disabled&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;button&quot; value=&quot;ボタン&quot; class=&quot;__button__&quot; /&gt;&#xA;<!--
+							-->&#x9;&lt;input type=&quot;button&quot; value=&quot;ボタン&quot; class=&quot;__button__&quot; disabled /&gt;&#xA;<!--
+							-->&#x9;&lt;a href=&quot;#&quot; class=&quot;__button__&quot;&gt;ボタン&lt;/a&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color--: var(--red);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color--: var(--yellow);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color--: var(--green);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color--: var(--blue);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--color--: var(--gray);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button type=&quot;button&quot; class=&quot;__button__&quot; style=&quot;--color--: var(--red);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button type=&quot;button&quot; class=&quot;__button__&quot; style=&quot;--color--: var(--yellow);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button type=&quot;button&quot; class=&quot;__button__&quot; style=&quot;--color--: var(--green);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button type=&quot;button&quot; class=&quot;__button__&quot; style=&quot;--color--: var(--blue);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button type=&quot;button&quot; class=&quot;__button__&quot; style=&quot;--color--: var(--gray);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							-->&lt;p&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--red);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--yellow);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--green);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--blue);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
-							-->&#x9;&lt;button class=&quot;__button__&quot; type=&quot;button&quot; style=&quot;--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--gray);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button type=&quot;button&quot; class=&quot;__button__&quot; style=&quot;--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--red);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button type=&quot;button&quot; class=&quot;__button__&quot; style=&quot;--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--yellow);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button type=&quot;button&quot; class=&quot;__button__&quot; style=&quot;--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--green);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button type=&quot;button&quot; class=&quot;__button__&quot; style=&quot;--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--blue);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
+							-->&#x9;&lt;button type=&quot;button&quot; class=&quot;__button__&quot; style=&quot;--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--gray);&quot;&gt;ボタン&lt;/button&gt;&#xA;<!--
 							-->&lt;/p&gt;&#xA;<!--
 							--></code></pre>
 						</figure>
 						<p>
-							<input type="button" value="ボタン" />
-							<input type="button" value="ボタン" disabled />
 							<button type="button">ボタン</button>
 							<button type="button" disabled>ボタン</button>
+							<input type="button" value="ボタン" />
+							<input type="button" value="ボタン" disabled />
 							<a href="#">ボタン</a>
+							<a href="#" class="__button__link">ボタン</a>
+							<button type="button" class="__button__link">ボタン</button>
+							<input type="button" value="ボタン" class="__button__link" />
 						</p>
 						<hr class="__hr__" />
 						<p>
-							<input class="__button__" type="button" value="ボタン" />
-							<input class="__button__" type="button" value="ボタン" disabled />
-							<button class="__button__" type="button">ボタン</button>
-							<button class="__button__" type="button" disabled>ボタン</button>
-							<a class="__button__" href="#">ボタン</a>
+							<button type="button" class="__button__">ボタン</button>
+							<button type="button" class="__button__" disabled>ボタン</button>
+							<input type="button" value="ボタン" class="__button__" />
+							<input type="button" value="ボタン" class="__button__" disabled />
+							<a href="#" class="__button__">ボタン</a>
 						</p>
 						<p>
-							<button class="__button__" type="button" style="--color--: var(--red);">ボタン</button>
-							<button class="__button__" type="button" style="--color--: var(--yellow);">ボタン</button>
-							<button class="__button__" type="button" style="--color--: var(--green);">ボタン</button>
-							<button class="__button__" type="button" style="--color--: var(--blue);">ボタン</button>
-							<button class="__button__" type="button" style="--color--: var(--gray);">ボタン</button>
+							<button type="button" class="__button__" style="--color--: var(--red);">ボタン</button>
+							<button type="button" class="__button__" style="--color--: var(--yellow);">ボタン</button>
+							<button type="button" class="__button__" style="--color--: var(--green);">ボタン</button>
+							<button type="button" class="__button__" style="--color--: var(--blue);">ボタン</button>
+							<button type="button" class="__button__" style="--color--: var(--gray);">ボタン</button>
 						</p>
 						<p>
-							<button class="__button__" type="button" style="--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--red);">ボタン</button>
-							<button class="__button__" type="button" style="--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--yellow);">ボタン</button>
-							<button class="__button__" type="button" style="--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--green);">ボタン</button>
-							<button class="__button__" type="button" style="--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--blue);">ボタン</button>
-							<button class="__button__" type="button" style="--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--gray);">ボタン</button>
+							<button type="button" class="__button__" style="--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--red);">ボタン</button>
+							<button type="button" class="__button__" style="--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--yellow);">ボタン</button>
+							<button type="button" class="__button__" style="--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--green);">ボタン</button>
+							<button type="button" class="__button__" style="--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--blue);">ボタン</button>
+							<button type="button" class="__button__" style="--border-radius--: 1e6px; --color--: var(--light-dark); --background--: var(--gray);">ボタン</button>
 						</p>
 					</section>
 					<section>
@@ -1808,7 +1781,7 @@
 							-->&lt;/figure&gt;&#xA;<!--
 							--></code></pre>
 						</figure>
-						<figure class="__figure__"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEXAwMBmS75kAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></figure>
+						<figure class="__figure__"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNsbGxsYKAAMFGiedSAYWMAAKrrAhXdY/gIAAAAAElFTkSuQmCC" width="960" height="540" /></figure>
 					</section>
 					<section>
 						<h4>インラインフレーム</h4>
@@ -1832,7 +1805,7 @@
 							-->&lt;/figure&gt;&#xA;<!--
 							--></code></pre>
 						</figure>
-						<figure class="__figure__"><embed type="image/png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEXAwMBmS75kAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540" /></figure>
+						<figure class="__figure__"><embed type="image/png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNsbGxsYKAAMFGiedSAYWMAAKrrAhXdY/gIAAAAAElFTkSuQmCC" width="960" height="540" /></figure>
 					</section>
 					<section>
 						<h4>オブジェクト</h4>
@@ -1844,7 +1817,7 @@
 							-->&lt;/figure&gt;&#xA;<!--
 							--></code></pre>
 						</figure>
-						<figure class="__figure__"><object type="image/png" data="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAIcAQMAAAADk1U4AAAAA1BMVEXAwMBmS75kAAAAVklEQVQYGe3BMQEAAADCIPunXghfYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwC/zwAAd9YKfUAAAAASUVORK5CYII=" width="960" height="540"></object></figure>
+						<figure class="__figure__"><object type="image/png" data="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNsbGxsYKAAMFGiedSAYWMAAKrrAhXdY/gIAAAAAElFTkSuQmCC" width="960" height="540"></object></figure>
 					</section>
 					<section>
 						<h4>ビデオ</h4>
@@ -1852,11 +1825,11 @@
 							<figcaption>HTML</figcaption>
 							<pre class="__pre__code"><code><!--
 							-->&lt;figure class=&quot;__figure__&quot;&gt;&#xA;<!--
-							-->&#x9;&lt;video src=&quot;example.mp4&quot; width=&quot;960&quot; height=&quot;540&quot; controls&gt;&lt;/video&gt;&#xA;<!--
+							-->&#x9;&lt;video src=&quot;example.mp4&quot; poster=&quot;example.png&quot; width=&quot;960&quot; height=&quot;540&quot; controls&gt;&lt;/video&gt;&#xA;<!--
 							-->&lt;/figure&gt;&#xA;<!--
 							--></code></pre>
 						</figure>
-						<figure class="__figure__"><video width="960" height="540" controls></video></figure>
+						<figure class="__figure__"><video poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGElEQVR4nGNsbGxsYKAAMFGiedSAYWMAAKrrAhXdY/gIAAAAAElFTkSuQmCC" width="960" height="540" controls></video></figure>
 					</section>
 					<section>
 						<h4>オーディオ</h4>

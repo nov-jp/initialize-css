@@ -184,7 +184,7 @@ optgroup, :disabled, :disabled * {
 /**
  * display
  */
-:where(option[selected][disabled], dialog:not([open], [popover]), [popover]:not(:popover-open), [hidden]:not([hidden="until-found"])):not(#_) {
+:where(option[selected][disabled], [hidden]:not([hidden="until-found"])):not(#_) {
 	display: none;
 }
 
@@ -287,7 +287,7 @@ tbody, thead, tfoot, tr {
 *, ::before, ::after, ::file-selector-button, ::details-content {
 	box-sizing: border-box;
 	letter-spacing: var(--letter-spacing, normal);
-	line-height: var(--line-height, calc(var(--leading, var(--leading-size, var(--sp_m)) * var(--leading-scale, 1) * var(--leading-ratio, 1)) + 1em));
+	line-height: var(--line-height--, calc(var(--leading, var(--leading-size, var(--sp_m)) * var(--leading-scale, 1) * var(--leading-ratio, 1)) + 1em));
 	min-inline-size: 0;
 }
 :focus-visible {

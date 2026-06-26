@@ -7,23 +7,4 @@
 	--font_default: var(--font_sans);
 
 	--letter-spacing: calc(1em / 32);
-
-	--pale-red: color-mix(in srgb, var(--light-dark), var(--red) var(--alpha_m));
-	--pale-yellow: color-mix(in srgb, var(--light-dark), var(--yellow) var(--alpha_m));
-	--pale-green: color-mix(in srgb, var(--light-dark), var(--green) var(--alpha_m));
-	--pale-blue: color-mix(in srgb, var(--light-dark), var(--blue) var(--alpha_m));
-	--pale-gray: color-mix(in srgb, var(--light-dark), var(--gray) var(--alpha_m));
-	--pale-text: color-mix(in srgb, var(--light-dark), currentcolor var(--alpha_m));
-	--paler-red: color-mix(in srgb, var(--light-dark), var(--red) var(--alpha_l));
-	--paler-yellow: color-mix(in srgb, var(--light-dark), var(--yellow) var(--alpha_l));
-	--paler-green: color-mix(in srgb, var(--light-dark), var(--green) var(--alpha_l));
-	--paler-blue: color-mix(in srgb, var(--light-dark), var(--blue) var(--alpha_l));
-	--paler-gray: color-mix(in srgb, var(--light-dark), var(--gray) var(--alpha_l));
-	--paler-text: color-mix(in srgb, var(--light-dark), currentcolor var(--alpha_l));
-	--palest-red: color-mix(in srgb, var(--light-dark), var(--red) var(--alpha_xl));
-	--palest-yellow: color-mix(in srgb, var(--light-dark), var(--yellow) var(--alpha_xl));
-	--palest-green: color-mix(in srgb, var(--light-dark), var(--green) var(--alpha_xl));
-	--palest-blue: color-mix(in srgb, var(--light-dark), var(--blue) var(--alpha_xl));
-	--palest-gray: color-mix(in srgb, var(--light-dark), var(--gray) var(--alpha_xl));
-	--palest-text: color-mix(in srgb, var(--light-dark), currentcolor var(--alpha_xl));
 }
